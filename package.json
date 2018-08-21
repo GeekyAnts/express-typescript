@@ -1,0 +1,36 @@
+{
+  "name": "node-server-with-typescript",
+  "version": "1.0.0",
+  "description": "A Web & API server built using TypeScript",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "supertest": "^3.1.0",
+    "tslint": "^5.11.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.7.1",
+    "awesome-typescript-loader": "^5.2.0",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.0.1",
+    "typescript-eslint-parser": "^18.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch & nodemon dist",
+    "test": "tsc && ./node_modules/.bin/mocha dist/**/*.spec.js",
+    "lint": "./node_modules/.bin/eslint src --ext ts"
+  },
+  "author": "Faiz A. Farooqui <faiz@geekyants.com>",
+  "license": "ISC"
+}

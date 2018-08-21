@@ -1,0 +1,53 @@
+extends: airbnb-base
+env:
+  node: true
+  mocha: true
+  es6: true
+parser: typescript-eslint-parser
+parserOptions:
+  sourceType: module
+  ecmaFeatures:
+    modules: true
+rules:
+  no-console: 0
+  no-tabs: 0
+  indent:
+    - 2
+    - tab
+  generator-star-spacing:
+    - 2
+    - before: true
+      after: true
+  no-shadow: 0
+  import/no-unresolved: 0
+  import/extensions: 0
+  require-yield: 0
+  no-param-reassign: 0
+  comma-dangle: 0
+  no-underscore-dangle: 0
+  no-control-regex: 0
+  import/no-extraneous-dependencies:
+    - 2
+    - devDependencies: true
+  func-names: 0
+  no-unused-expressions: 0
+  prefer-arrow-callback: 1
+  no-use-before-define:
+    - 2
+    - functions: false
+  space-before-function-paren:
+    - 2
+    - always
+  max-len:
+    - 2
+    - 120
+    - 2
+  semi:
+    - 2
+    - never
+  strict:
+    - 2
+    - global
+  arrow-parens:
+    - 0
+    - always
