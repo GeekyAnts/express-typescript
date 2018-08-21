@@ -3,7 +3,7 @@
  *
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
-import * as template from '../../views/index.marko'
+import * as template from '../../views/home.marko'
 
 class Home {
 	public static index (req, res): void {

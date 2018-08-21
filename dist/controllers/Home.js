@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
-const template = require("../../views/index.marko");
+const template = require("../../views/home.marko");
 class Home {
     static index(req, res) {
         res.marko(template, {
