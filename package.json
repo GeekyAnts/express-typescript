@@ -4,12 +4,17 @@
   "description": "A Web & API server built using TypeScript",
   "main": "index.js",
   "dependencies": {
+    "@lasso/marko-taglib": "^1.0.10",
     "body-parser": "^1.18.3",
+    "browser-refresh": "^1.7.3",
+    "browser-refresh-taglib": "^1.1.0",
     "compression": "^1.7.3",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
-    "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "lasso": "^3.2.3",
+    "lasso-marko": "^2.4.4",
+    "marko": "^4.12.5",
     "supertest": "^3.1.0",
     "tslint": "^5.11.0"
   },

@@ -1,13 +1,14 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  *	Handler for Home
  *
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
-Object.defineProperty(exports, "__esModule", { value: true });
+const template = require("../../views/index.marko");
 class Home {
     static index(req, res) {
-        res.render('home', {
+        res.marko(template, {
             locals: res.app.locals.app,
             title: 'Home'
         });

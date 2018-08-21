@@ -40,7 +40,7 @@ rules:
     - always
   max-len:
     - 2
-    - 120
+    - 150
     - 2
   semi:
     - 2

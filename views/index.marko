@@ -1,0 +1,23 @@
+<lasso-page/>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>${data.title} - ${data.locals.name}</title>
+    <lasso-head/>
+  </head>
+  <body>
+    
+    You have new messages!
+
+    <lasso-body/>
+
+    <!--
+    Page will automatically refresh any time a template is modified
+    if launched using the browser-refresh Node.js process launcher:
+    https://github.com/patrick-steele-idem/browser-refresh
+    -->
+    <browser-refresh/>
+  </body>
+</html>
