@@ -32,7 +32,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch & nodemon dist",
+    "dev": "tsc --watch & ./node_modules/.bin/browser-refresh dist",
     "test": "tsc && ./node_modules/.bin/mocha dist/**/*.spec.js",
     "lint": "./node_modules/.bin/eslint src --ext ts"
   },
