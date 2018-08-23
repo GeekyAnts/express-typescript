@@ -7,7 +7,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const Bootstrap_1 = require("../middlewares/Bootstrap");
-const Locals_1 = require("../middlewares/Locals");
+const Locals_1 = require("./Locals");
 const Routes_1 = require("./Routes");
 class Express {
     /**
@@ -15,14 +15,17 @@ class Express {
      */
     constructor() {
         this.express = express();
+        this.mountDotEnv();
         this.mountMiddlewares();
         this.mountRoutes();
+    }
+    mountDotEnv() {
+        this.express = Locals_1.default.init(this.express);
     }
     /**
      * Mounts all the defined middlewares
      */
     mountMiddlewares() {
-        this.express = Locals_1.default.init(this.express);
         this.express = Bootstrap_1.default.init(this.express);
     }
     /**

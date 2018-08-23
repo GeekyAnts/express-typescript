@@ -7,7 +7,7 @@
 import * as express from 'express'
 
 import Bootstrap from '../middlewares/Bootstrap'
-import Locals from '../middlewares/Locals'
+import Locals from './Locals'
 import router from './Routes'
 
 class Express {
@@ -22,15 +22,19 @@ class Express {
 	constructor () {
 		this.express = express()
 
+		this.mountDotEnv()
 		this.mountMiddlewares()
 		this.mountRoutes()
+	}
+
+	private mountDotEnv (): void {
+		this.express = Locals.init(this.express)
 	}
 
 	/**
 	 * Mounts all the defined middlewares
 	 */
 	private mountMiddlewares (): void {
-		this.express = Locals.init(this.express)
 		this.express = Bootstrap.init(this.express)
 	}
 
