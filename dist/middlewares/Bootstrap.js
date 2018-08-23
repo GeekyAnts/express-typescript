@@ -12,29 +12,36 @@ const lasso = require("lasso");
 const cors = require("cors");
 const compress = require("compression");
 const markoExpress = require("marko/express");
+const lassoMiddleware = require("lasso/middleware");
+const Lasso_1 = require("../config/Lasso");
 class Bootstrap {
-    static init(_express) {
+    static mountExpressAPIs(_express) {
         // Enables the CORS
         _express.use(cors());
         // Enables the "gzip" / "deflate" compression for response
         _express.use(compress());
-        // markoNode.install()
+        return _express;
+    }
+    static mountMarko(_express) {
         // Configure lasso to control how JS/CSS/etc. is delivered to the browser
-        lasso.configure({
-            plugins: [
-                'lasso-marko' // Allow Marko templates to be compiled and transported to the browser
-            ],
-            outputDir: path.join(__dirname, '../../public/static'),
-            urlPrefix: "/public/static",
-            bundlingEnabled: true,
-            minify: true,
-            fingerprintsEnabled: true,
-        });
-        _express.use(require('lasso/middleware').serveStatic());
+        lasso.configure(Lasso_1.default.init());
+        // Register Lasso Static Middleware
+        _express.use(lassoMiddleware.serveStatic());
         // Set the view folder path & view engine
         _express.use(markoExpress());
+        return _express;
+    }
+    static mountStatics(_express) {
         // Load Statics
         _express.use('/public', express.static(path.join(__dirname, '../../public'), { maxAge: 31557600000 }));
+        // Load NPM Statics
+        _express.use('/node_modules', express.static(path.join(__dirname, '../../node_modules')));
+        return _express;
+    }
+    static init(_express) {
+        _express = this.mountExpressAPIs(_express);
+        _express = this.mountMarko(_express);
+        _express = this.mountStatics(_express);
         return _express;
     }
 }

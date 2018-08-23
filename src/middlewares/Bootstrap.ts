@@ -11,36 +11,48 @@ import * as lasso from 'lasso'
 import * as cors from 'cors'
 import * as compress from 'compression'
 import * as markoExpress from 'marko/express'
+import * as lassoMiddleware from 'lasso/middleware'
+
+import Lasso from '../config/Lasso'
 
 class Bootstrap {
-	public static init (_express): any {
+	public static mountExpressAPIs (_express): any {
 		// Enables the CORS
 		_express.use(cors())
 
 		// Enables the "gzip" / "deflate" compression for response
 		_express.use(compress())
 
-		// markoNode.install()
+		return _express
+	}
 
+	public static mountMarko (_express): any {
 		// Configure lasso to control how JS/CSS/etc. is delivered to the browser
-		lasso.configure({
-			plugins: [
-				'lasso-marko' // Allow Marko templates to be compiled and transported to the browser
-			],
-			outputDir: path.join(__dirname, '../../public/static'), // Place all generated JS/CSS/etc. files into the "static" dir
-			urlPrefix: "/public/static",
-			bundlingEnabled: true, // Only enable bundling in production
-			minify: true, // Only minify JS and CSS code in production
-			fingerprintsEnabled: true, // Only add fingerprints to URLs in production
-		})
+		lasso.configure(Lasso.init())
 
-		_express.use(require('lasso/middleware').serveStatic());
+		// Register Lasso Static Middleware
+		_express.use(lassoMiddleware.serveStatic())
 
 		// Set the view folder path & view engine
 		_express.use(markoExpress())
 
+		return _express
+	}
+
+	public static mountStatics (_express): any {
 		// Load Statics
-		_express.use('/public', express.static(path.join(__dirname, '../../public'), { maxAge: 31557600000 }));
+		_express.use('/public', express.static(path.join(__dirname, '../../public'), { maxAge: 31557600000 }))
+
+		// Load NPM Statics
+		_express.use('/node_modules', express.static(path.join(__dirname, '../../node_modules')))
+
+		return _express
+	}
+
+	public static init (_express): any {
+		_express = this.mountExpressAPIs(_express)
+		_express = this.mountMarko(_express)
+		_express = this.mountStatics(_express)
 
 		return _express
 	}

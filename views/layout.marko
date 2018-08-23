@@ -1,13 +1,25 @@
+<lasso-page package-path="./browser.json" />
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
+
+    <!-- Website Title -->
     <title>${data.title} - ${data.locals.name}</title>
+
+    <!-- Load Bootstrap CSS Bundle -->
+    <!-- <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" /> -->
+
     <lasso-head/>
   </head>
   <body>
     <!-- this comes from <@body> -->
-    <include(input.body)/>    
+    <include(input.body)/>
+
+    <!-- Load Bootstrap JS -->
+    <!-- <script language="javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script language="javascript" src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
 
     <!--
     Page will automatically refresh any time a template is modified
@@ -15,7 +27,6 @@
     https://github.com/patrick-steele-idem/browser-refresh
     -->
     <browser-refresh/>
-
-    <lasso-body/>
+    <lasso-body/>    
   </body>
 </html>
