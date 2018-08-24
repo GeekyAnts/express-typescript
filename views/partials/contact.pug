@@ -1,0 +1,32 @@
+// Contact Section
+section#contact
+  .container
+    h2.text-center.text-uppercase.text-secondary.mb-0 Contact Me
+    hr.star-dark.mb-5
+    .row
+      .col-lg-8.mx-auto        
+        form#contactForm(name='sentMessage', novalidate='novalidate')
+          .control-group
+            .form-group.floating-label-form-group.controls.mb-0.pb-2
+              label Name
+              input#name.form-control(type='text', placeholder='Name', required='required', data-validation-required-message='Please enter your name.')
+              p.help-block.text-danger
+          .control-group
+            .form-group.floating-label-form-group.controls.mb-0.pb-2
+              label Email Address
+              input#email.form-control(type='email', placeholder='Email Address', required='required', data-validation-required-message='Please enter your email address.')
+              p.help-block.text-danger
+          .control-group
+            .form-group.floating-label-form-group.controls.mb-0.pb-2
+              label Phone Number
+              input#phone.form-control(type='tel', placeholder='Phone Number', required='required', data-validation-required-message='Please enter your phone number.')
+              p.help-block.text-danger
+          .control-group
+            .form-group.floating-label-form-group.controls.mb-0.pb-2
+              label Message
+              textarea#message.form-control(rows='5', placeholder='Message', required='required', data-validation-required-message='Please enter a message.')
+              p.help-block.text-danger
+          br
+          #success
+          .form-group
+            button#sendMessageButton.btn.btn-primary.btn-xl(type='submit') Send

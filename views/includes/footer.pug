@@ -1,0 +1,42 @@
+// Footer
+footer.footer.text-center
+  .container
+    .row
+      .col-md-4.mb-5.mb-lg-0
+        h4.text-uppercase.mb-4 Location
+        p.lead.mb-0
+          | Bengaluru
+          br
+          | Karnataka, India
+      .col-md-4.mb-5.mb-lg-0
+        h4.text-uppercase.mb-4 Around the Web
+        ul.list-inline.mb-0
+          li.list-inline-item
+            a.btn.btn-outline-light.btn-social.text-center.rounded-circle(href=global.process.env.FACEBOOK_URL, target="_blank", style="padding-top: 13px;")
+              i.fa.fa-fw.fa-facebook
+          li.list-inline-item
+            a.btn.btn-outline-light.btn-social.text-center.rounded-circle(href=global.process.env.GOOGLE_URL, target="_blank", style="padding-top: 13px;")
+              i.fa.fa-fw.fa-google-plus
+          li.list-inline-item
+            a.btn.btn-outline-light.btn-social.text-center.rounded-circle(href=global.process.env.TWITTER_URL, target="_blank", style="padding-top: 13px;")
+              i.fa.fa-fw.fa-twitter
+          li.list-inline-item
+            a.btn.btn-outline-light.btn-social.text-center.rounded-circle(href=global.process.env.LINKEDIN_URL, target="_blank", style="padding-top: 13px;")
+              i.fa.fa-fw.fa-linkedin
+      .col-md-4
+        h4.text-uppercase.mb-4 About Us
+        p.lead.mb-0
+          | This is an open source boilerplate 
+          br
+          | created @ 
+          a(href='http://geekyants.com') GeekyAnts
+          | .
+
+.copyright.py-4.text-center.text-white
+  .container
+    small Copyright © #{global.process.env.COMPANY_NAME} 2018
+
+// Scroll to Top Button (Only visible on small and extra-small screen sizes)
+.scroll-to-top.d-lg-none.position-fixed
+  a.js-scroll-trigger.d-block.text-center.text-white.rounded(href='#page-top', style="padding-top: 1em;")
+    i.fa.fa-chevron-up

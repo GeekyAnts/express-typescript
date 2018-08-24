@@ -1,0 +1,39 @@
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    
+    title #{title} - #{global.process.env.APP_NAME}
+    meta(name="description" content=global.process.env.APP_DESCRIPTION)
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="keyword", content=global.process.env.APP_KEYWORDS)
+
+    link(rel="shortcut icon", href="public/favicon.ico", type="image/x-icon")
+
+    link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic', rel='stylesheet', type='text/css')
+
+    link(rel="stylesheet", href="vendor/bootstrap/dist/css/bootstrap.min.css")
+    link(rel="stylesheet", href="vendor/font-awesome/css/font-awesome.min.css")
+    link(rel="stylesheet", href="vendor/magnific-popup/dist/magnific-popup.css")
+
+    style
+      include static/css/custom.css
+
+  body#page-top
+    //- Header
+    include includes/header.pug
+
+    //- Body
+    block content
+
+    //- Footer
+    include includes/footer.pug
+
+    script(src="vendor/jquery/dist/jquery.min.js")
+    script(src="vendor/jquery.easing/jquery.easing.min.js")
+    script(src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js")
+    script(src="vendor/magnific-popup/dist/jquery.magnific-popup.min.js")
+
+    script
+      include static/js/custom.js

@@ -12,11 +12,13 @@ class Locals {
         const year = (new Date()).getFullYear();
         const copyright = `Copyright ${year} ${name} | All Rights Reserved`;
         const company = process.env.COMPANY_NAME || 'GeekyAnts';
+        const description = process.env.APP_DESCRIPTION || 'Here goes the app description';
         _express.locals.app = {
             name,
             company,
             url,
-            copyright
+            copyright,
+            description
         };
         return _express;
     }
