@@ -6,7 +6,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
-const Bootstrap_1 = require("../middlewares/Bootstrap");
+const Kernel_1 = require("../middlewares/Kernel");
 const Locals_1 = require("./Locals");
 const Routes_1 = require("./Routes");
 class Express {
@@ -26,7 +26,7 @@ class Express {
      * Mounts all the defined middlewares
      */
     mountMiddlewares() {
-        this.express = Bootstrap_1.default.init(this.express);
+        this.express = Kernel_1.default.init(this.express);
     }
     /**
      * Mounts all the defined routes

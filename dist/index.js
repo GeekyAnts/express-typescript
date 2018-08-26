@@ -1,10 +1,10 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Bootstrap your App
  *
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
+Object.defineProperty(exports, "__esModule", { value: true });
 const App_1 = require("./config/App");
 /**
  * Load Configuration

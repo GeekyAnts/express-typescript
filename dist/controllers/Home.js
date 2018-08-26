@@ -1,6 +1,6 @@
 "use strict";
 /**
- *	Handler for Home
+ * Handler for Home
  *
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
@@ -8,7 +8,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class Home {
     static index(req, res) {
         res.render('pages/home', {
-            title: 'Home',
+            title: 'Home'
         });
     }
 }

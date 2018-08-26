@@ -4,12 +4,12 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
-import { Router } from 'express'
+import { Router } from 'express';
 
-import HomeController from '../controllers/Home'
+import HomeController from '../controllers/Home';
 
-const router = Router()
+const router = Router();
 
-router.get('/', HomeController.index)
+router.get('/', HomeController.index);
 
-export default router
+export default router;

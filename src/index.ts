@@ -3,14 +3,15 @@
  *
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
-import App from './config/App'
+
+import App from './config/App';
 
 /**
  * Load Configuration
  */
-App.loadConfiguration()
+App.loadConfiguration();
 
 /**
  * Run the Server on Clusters
  */
-App.loadServer()
+App.loadServer();

@@ -7,7 +7,10 @@
   },
   "files": [
     "./node_modules/@types/mocha/index.d.ts",
-    "./node_modules/@types/node/index.d.ts"
+    "./node_modules/@types/node/index.d.ts",
+    "./node_modules/@types/mongoose/index.d.ts",
+    "./node_modules/@types/mongodb/index.d.ts",
+    "./node_modules/@types/express/index.d.ts"
   ],
   "include": [
     "src/**/*.ts"
