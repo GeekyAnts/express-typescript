@@ -7,12 +7,14 @@
 import * as os from 'os';
 import * as dotenv from 'dotenv';
 import * as cluster from 'cluster';
+import * as path from 'path';
 
 import express from './Express';
+import { Database } from './Database';
 
 class App {
 	public static loadConfiguration (): void {
-		dotenv.config();
+		dotenv.config({ path: path.join(__dirname, '../../.env') });
 	}
 
 	public static loadServer (): void {
@@ -22,6 +24,7 @@ class App {
 			}
 		} else {
 			express.init();
+			Database.init();
 		}
 	}
 }

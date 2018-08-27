@@ -5,7 +5,7 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-const App_1 = require("./config/App");
+const App_1 = require("./providers/App");
 /**
  * Load Configuration
  */

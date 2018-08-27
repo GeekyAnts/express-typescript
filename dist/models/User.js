@@ -5,11 +5,11 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+const crypto = require("crypto");
+const mongoose = require("mongoose");
 const bcrypt = require("bcrypt-nodejs");
-const mongoose_1 = require("mongoose");
-const Database_1 = require("../config/Database");
 // Define the User Schema
-exports.UserSchema = new mongoose_1.Schema({
+exports.UserSchema = new mongoose.Schema({
     email: { type: String, unique: true },
     password: { type: String },
     passwordResetToken: { type: String },
@@ -49,11 +49,30 @@ exports.UserSchema.pre('save', function (_next) {
         });
     });
 });
-// Custom Method
+// Custom Methods
+// Get user's full billing address
 exports.UserSchema.methods.billingAddress = function () {
     const fulladdress = `${this.fullname.trim()} ${this.geolocation.trim()}`;
     return fulladdress;
 };
-const User = Database_1.default.model('User', exports.UserSchema);
+// Compares the user's password with the request password
+exports.UserSchema.methods.comparePassword = function (_requestPassword, _cb) {
+    bcrypt.compare(_requestPassword, this.password, (_err, _isMatch) => {
+        _cb(_err, _isMatch);
+    });
+};
+// User's gravatar
+exports.UserSchema.methods.gravatar = function (_size) {
+    if (!_size) {
+        _size = 200;
+    }
+    const url = 'https://gravatar.com/avatar';
+    if (!this.email) {
+        return `${url}/?s=${_size}&d=retro`;
+    }
+    const md5 = crypto.createHash('md5').update(this.email).digest('hex');
+    return `${url}/${md5}?s=${_size}&d=retro`;
+};
+const User = mongoose.model('User', exports.UserSchema);
 exports.default = User;
 //# sourceMappingURL=User.js.map

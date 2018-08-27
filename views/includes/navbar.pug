@@ -8,10 +8,16 @@ nav#mainNav.navbar.navbar-expand-lg.bg-secondary.fixed-top.text-uppercase
     #navbarResponsive.collapse.navbar-collapse
       ul.navbar-nav.ml-auto
         li.nav-item.mx-0.mx-lg-1
-          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#login') Login
+          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#signup') Register
+        if !user
+          li.nav-item.mx-0.mx-lg-1
+            a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#login') LogIn
+        else
+          li.nav-item.mx-0.mx-lg-1
+            a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/logout') Logout
         li.nav-item.mx-0.mx-lg-1
           a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#portfolio') Portfolio
         li.nav-item.mx-0.mx-lg-1
           a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#about') About
         li.nav-item.mx-0.mx-lg-1
-          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#contact') Contact
+          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#contact') Contact        

@@ -1,0 +1,40 @@
+// LogIn Section
+section#login
+	.container
+		h2.text-center.text-uppercase.text-secondary.mb-0 Login
+		hr.star-dark.mb-5
+		.row
+			.col-lg-6.mx-auto
+				if messages.loginErrors
+					.alert.alert-danger.fade.show
+						button.close(type='button', data-dismiss='alert')
+							i.fa.fa-times-circle
+						for error in messages.loginErrors
+							div= error.msg
+				if messages.loginInfo
+					.alert.alert-info.fade.show
+						button.close(type='button', data-dismiss='alert')
+							i.fa.fa-times-circle
+						for info in messages.loginInfo
+							div= info.msg
+				if messages.loginSuccess
+					.alert.alert-success.fade.show
+						button.close(type='button', data-dismiss='alert')
+							i.fa.fa-times-circle
+						for success in messages.loginSuccess
+							div= success.msg
+				form#loginForm(name='loginform', novalidate='novalidate', action='/login', method='POST')
+					.control-group
+						.form-group.floating-label-form-group.controls.mb-0.pb-2
+							label(for='email') Email Address
+							input#email.form-control(type='email', name='email', placeholder='Email Address', required='required', data-validation-required-message='Please enter your email address.', autocomplete='email')
+							p.help-block.text-danger
+					.control-group
+						.form-group.floating-label-form-group.controls.mb-0.pb-2
+							label(for='password') Password
+							input#password.form-control(type='password', name='password', placeholder='Password', required='required', data-validation-required-message='Please enter password.', autocomplete='new-password')
+							p.help-block.text-danger
+					br
+					#success
+					.form-group
+						button#registerButton.btn.btn-primary.btn-xl(type='submit') Login

@@ -4,7 +4,7 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
-import App from './config/App';
+import App from './providers/App';
 
 /**
  * Load Configuration
