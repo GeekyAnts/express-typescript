@@ -6,8 +6,16 @@
 
 import * as passport from 'passport';
 
+import { IRequest, IResponse, INext } from '../../interfaces/vendors';
+
 class Login {
-	public static perform (req, res, next): any {
+	public static show (req: IRequest, res: IResponse): any {
+		res.render('pages/login', {
+			title: 'LogIn'
+		});
+	}
+
+	public static perform (req: IRequest, res: IResponse, next: INext): any {
 		req.assert('email', 'E-mail cannot be blank').notEmpty();
 		req.assert('email', 'E-mail is not valid').isEmail();
 		req.assert('password', 'Password cannot be blank').notEmpty();
@@ -16,8 +24,8 @@ class Login {
 
 		const errors = req.validationErrors();
 		if (errors) {
-			req.flash('loginErrors', errors);
-			return res.redirect('/#login');
+			req.flash('errors', errors);
+			return res.redirect('/login');
 		}
 
 		passport.authenticate('local', (err, user, info) => {
@@ -26,9 +34,8 @@ class Login {
 			}
 
 			if (! user) {
-				console.log('error ', info);
-				req.flash('loginErrors', info);
-				return res.redirect('/#login');
+				req.flash('errors', info);
+				return res.redirect('/login');
 			}
 
 			req.logIn(user, (err) => {
@@ -36,10 +43,10 @@ class Login {
 					return next(err);
 				}
 
-				req.flash('loginSuccess', { msg: 'You are successfully logged in now!' });
-				res.redirect('/#login');
+				req.flash('success', { msg: 'You are successfully logged in now!' });
+				res.redirect(req.session.returnTo || '/account');
 			});
-		})(req, res. next);
+		})(req, res, next);
 	}
 }
 

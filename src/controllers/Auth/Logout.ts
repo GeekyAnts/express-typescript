@@ -4,8 +4,10 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
+import { IRequest, IResponse } from '../../interfaces/vendors';
+
 class Logout {
-	public static perform (req, res): any {
+	public static perform (req: IRequest, res: IResponse): any {
 		req.logout();
 		req.session.destroy((err) => {
 			if (err) {

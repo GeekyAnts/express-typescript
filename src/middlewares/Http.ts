@@ -9,10 +9,13 @@ import * as flash from 'express-flash';
 import * as compress from 'compression';
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
+import * as connect from 'connect-mongo';
 import * as expressValidator from 'express-validator';
 
 import Locals from '../providers/Locals';
 import Passport from '../providers/Passport';
+
+const MongoStore = connect(session);
 
 class Http {
 	public static mountExpressAPIs (_express): any {
@@ -36,13 +39,18 @@ class Http {
 		 * into the options object.
 		 */
 		const options = {
+			resave: true,
+			saveUninitialized: true,
 			secret: Locals.config().appSecret,
-			resave: false,
-			saveUninitialized: false,
 			cookie: {
 				maxAge: 1209600000 // two weeks (in ms)
-			}
+			},
+			store: new MongoStore({
+				url: process.env.MONGOOSE_URL,
+				autoReconnect: true
+			})
 		};
+
 		_express.use(session(options));
 
 		// Enables the CORS

@@ -7,6 +7,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const User_1 = require("../../models/User");
 class Register {
+    static show(req, res) {
+        res.render('pages/signup', {
+            title: 'SignUp'
+        });
+    }
     static perform(req, res, next) {
         req.assert('email', 'E-mail cannot be blank').notEmpty();
         req.assert('email', 'E-mail is not valid').isEmail();
@@ -18,7 +23,7 @@ class Register {
         const errors = req.validationErrors();
         if (errors) {
             req.flash('errors', errors);
-            return res.redirect('/#signup');
+            return res.redirect('/signup');
         }
         const user = new User_1.default({
             email: req.body.email,
@@ -30,7 +35,7 @@ class Register {
             }
             if (existingUser) {
                 req.flash('errors', { msg: 'Account with the e-mail address already exists.' });
-                return res.redirect('/#signup');
+                return res.redirect('/signup');
             }
             user.save((err) => {
                 if (err) {
@@ -41,7 +46,7 @@ class Register {
                         return next(err);
                     }
                     req.flash('success', { msg: 'You are successfully logged in now!' });
-                    res.redirect('/#signup');
+                    res.redirect('/signup');
                 });
             });
         });

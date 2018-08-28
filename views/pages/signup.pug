@@ -1,0 +1,33 @@
+extends ../layout.pug
+
+block content
+	// SignUp Section
+	section#signup
+		.container
+			h2.text-center.text-uppercase.text-secondary.mb-0 SignUp
+			hr.star-dark.mb-5
+			.row
+				.col-lg-6.mx-auto
+					//- Flash Messages
+					include ../partials/flash
+					form#singupForm(name='signupform', novalidate='novalidate', action='/signup', method='POST')
+						input(type='hidden', name='_csrf', value=_csrf)
+						.control-group
+							.form-group.floating-label-form-group.controls.mb-0.pb-2
+								label(for='signup-email') Email Address
+								input#signup-email.form-control(type='email', name='email', placeholder='Email Address', required='required', data-validation-required-message='Please enter your email address.', autocomplete='email')
+								p.help-block.text-danger
+						.control-group
+							.form-group.floating-label-form-group.controls.mb-0.pb-2
+								label(for='signup-password') Password
+								input#signup-password.form-control(type='password', name='password', placeholder='Password', required='required', data-validation-required-message='Please enter password.', autocomplete='new-password')
+								p.help-block.text-danger
+						.control-group
+							.form-group.floating-label-form-group.controls.mb-0.pb-2
+								label(for='signup-confirmPassword') Confirm Password
+								input#signup-confirmPassword.form-control(type='password', name='confirmPassword', placeholder='Confirm Password', required='required', data-validation-required-message='Please enter password.', autocomplete='new-password')
+								p.help-block.text-danger
+						br
+						#success
+						.form-group
+							button#registerButton.btn.btn-primary.btn-xl(type='submit') Register

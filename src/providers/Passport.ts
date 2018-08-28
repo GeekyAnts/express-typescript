@@ -5,7 +5,6 @@
  */
 
 import * as passport from 'passport';
-import * as request from 'request';
 import { Strategy as LocalStrategy } from 'passport-local';
 
 import User from '../models/User';
@@ -58,7 +57,9 @@ class Passport {
 		if (req.isAuthenticated()) {
 			return next();
 		}
-		res.redirect('/#login');
+
+		req.flash('errors', { msg: 'Please Log-In to access any further!'});
+		res.redirect('/login');
 	}
 
 	public static isAuthorized (req, res, next): any {

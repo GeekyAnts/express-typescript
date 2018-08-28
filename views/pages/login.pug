@@ -1,0 +1,27 @@
+extends ../layout.pug
+
+block content
+	// LogIn Section
+	section#login
+		.container
+			h2.text-center.text-uppercase.text-secondary.mb-0 Login
+			hr.star-dark.mb-5
+			.row
+				.col-lg-6.mx-auto
+					include ../partials/flash
+					form#loginForm(name='loginform', novalidate='novalidate', action='/login', method='POST')
+						input(type='hidden', name='_csrf', value=_csrf)
+						.control-group
+							.form-group.floating-label-form-group.controls.mb-0.pb-2
+								label(for='login-email') Email Address
+								input#login-email.form-control(type='email', name='email', placeholder='Email Address', required='required', data-validation-required-message='Please enter your email address.', autocomplete='email')
+								p.help-block.text-danger
+						.control-group
+							.form-group.floating-label-form-group.controls.mb-0.pb-2
+								label(for='login-password') Password
+								input#login-password.form-control(type='password', name='password', placeholder='Password', required='required', data-validation-required-message='Please enter password.', autocomplete='new-password')
+								p.help-block.text-danger
+						br
+						#success
+						.form-group
+							button#loginButton.btn.btn-primary.btn-xl(type='submit') Login

@@ -10,9 +10,11 @@ const flash = require("express-flash");
 const compress = require("compression");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const connect = require("connect-mongo");
 const expressValidator = require("express-validator");
 const Locals_1 = require("../providers/Locals");
 const Passport_1 = require("../providers/Passport");
+const MongoStore = connect(session);
 class Http {
     static mountExpressAPIs(_express) {
         // Enables the request body parser
@@ -31,12 +33,16 @@ class Http {
          * into the options object.
          */
         const options = {
+            resave: true,
+            saveUninitialized: true,
             secret: Locals_1.default.config().appSecret,
-            resave: false,
-            saveUninitialized: false,
             cookie: {
                 maxAge: 1209600000 // two weeks (in ms)
-            }
+            },
+            store: new MongoStore({
+                url: process.env.MONGOOSE_URL,
+                autoReconnect: true
+            })
         };
         _express.use(session(options));
         // Enables the CORS

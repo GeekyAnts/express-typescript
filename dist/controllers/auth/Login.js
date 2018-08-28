@@ -7,6 +7,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const passport = require("passport");
 class Login {
+    static show(req, res) {
+        res.render('pages/login', {
+            title: 'LogIn'
+        });
+    }
     static perform(req, res, next) {
         req.assert('email', 'E-mail cannot be blank').notEmpty();
         req.assert('email', 'E-mail is not valid').isEmail();
@@ -15,8 +20,8 @@ class Login {
         req.sanitize('email').normalizeEmail({ gmail_remove_dots: false });
         const errors = req.validationErrors();
         if (errors) {
-            req.flash('loginErrors', errors);
-            return res.redirect('/#login');
+            req.flash('errors', errors);
+            return res.redirect('/login');
         }
         passport.authenticate('local', (err, user, info) => {
             if (err) {
@@ -24,17 +29,17 @@ class Login {
             }
             if (!user) {
                 console.log('error ', info);
-                req.flash('loginErrors', info);
-                return res.redirect('/#login');
+                req.flash('errors', info);
+                return res.redirect('/login');
             }
             req.logIn(user, (err) => {
                 if (err) {
                     return next(err);
                 }
-                req.flash('loginSuccess', { msg: 'You are successfully logged in now!' });
-                res.redirect('/#login');
+                req.flash('success', { msg: 'You are successfully logged in now!' });
+                res.redirect(req.session.returnTo || '/account');
             });
-        })(req, res.next);
+        })(req, res, next);
     }
 }
 exports.default = Login;

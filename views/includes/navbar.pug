@@ -1,23 +1,25 @@
 // Navigation
 nav#mainNav.navbar.navbar-expand-lg.bg-secondary.fixed-top.text-uppercase
   .container
-    a.navbar-brand.js-scroll-trigger(href='#page-top') #{global.process.env.APP_NAME}
+    a.navbar-brand.js-scroll-trigger(href='/#page-top') #{global.process.env.APP_NAME}
     button.navbar-toggler.navbar-toggler-right.text-uppercase.bg-primary.text-white.rounded(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
       | Menu
       i.fa.fa-bars
     #navbarResponsive.collapse.navbar-collapse
-      ul.navbar-nav.ml-auto
-        li.nav-item.mx-0.mx-lg-1
-          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#signup') Register
+      ul.navbar-nav.ml-auto        
         if !user
           li.nav-item.mx-0.mx-lg-1
-            a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#login') LogIn
+            a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/login') LogIn
+          li.nav-item.mx-0.mx-lg-1
+            a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/signup') Register
         else
+          li.nav-item.mx-0.mx-lg-1
+            a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#') #{user.email}
           li.nav-item.mx-0.mx-lg-1
             a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/logout') Logout
         li.nav-item.mx-0.mx-lg-1
-          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#portfolio') Portfolio
+          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/#portfolio') Portfolio
         li.nav-item.mx-0.mx-lg-1
-          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#about') About
+          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/#about') About
         li.nav-item.mx-0.mx-lg-1
-          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#contact') Contact        
+          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/#contact') Contact        

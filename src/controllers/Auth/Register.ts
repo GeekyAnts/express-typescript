@@ -5,9 +5,16 @@
  */
 
 import User from '../../models/User';
+import { IRequest, IResponse, INext } from '../../interfaces/vendors';
 
 class Register {
-	public static perform (req, res, next): any {
+	public static show (req: IRequest, res: IResponse): any {
+		res.render('pages/signup', {
+			title: 'SignUp'
+		});
+	}
+
+	public static perform (req: IRequest, res: IResponse, next: INext): any {
 		req.assert('email', 'E-mail cannot be blank').notEmpty();
 		req.assert('email', 'E-mail is not valid').isEmail();
 		req.assert('password', 'Password cannot be blank').notEmpty();
@@ -19,7 +26,7 @@ class Register {
 		const errors = req.validationErrors();
 		if (errors) {
 			req.flash('errors', errors);
-			return res.redirect('/#signup');
+			return res.redirect('/signup');
 		}
 
 		const user = new User({
@@ -34,7 +41,7 @@ class Register {
 
 			if (existingUser) {
 				req.flash('errors', { msg: 'Account with the e-mail address already exists.' });
-				return res.redirect('/#signup');
+				return res.redirect('/signup');
 			}
 
 			user.save((err) => {
@@ -47,7 +54,7 @@ class Register {
 						return next(err);
 					}
 					req.flash('success', { msg: 'You are successfully logged in now!' });
-					res.redirect('/#signup');
+					res.redirect('/signup');
 				});
 			});
 		});
