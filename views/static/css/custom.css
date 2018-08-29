@@ -70,6 +70,10 @@ section h2 {
   }
 }
 
+.container-padding {
+  padding-top: 9em;
+}
+
 .btn-xl {
   padding: 1rem 1.75rem;
   font-size: 1.25rem;

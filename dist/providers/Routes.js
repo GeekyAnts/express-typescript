@@ -7,6 +7,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const passport = require("passport");
 const express_1 = require("express");
+const Cache_1 = require("./Cache");
 const Passport_1 = require("./Passport");
 const Home_1 = require("../controllers/Home");
 const Register_1 = require("../controllers/Auth/Register");
@@ -14,7 +15,8 @@ const Login_1 = require("../controllers/Auth/Login");
 const Logout_1 = require("../controllers/Auth/Logout");
 const Account_1 = require("../controllers/Account");
 const router = express_1.Router();
-router.get('/', Home_1.default.index);
+const cache = Cache_1.default.cache;
+router.get('/', cache(10), Home_1.default.index);
 router.get('/signup', Register_1.default.show);
 router.post('/signup', Register_1.default.perform);
 router.get('/login', Login_1.default.show);

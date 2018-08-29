@@ -26,7 +26,7 @@ class Http {
 		// Disable the x-powered-by header in response
 		_express.disable('x-powered-by');
 
-		// Enables the request validator
+		// Enables the request payload validator
 		_express.use(expressValidator());
 
 		// Enables the request flash messages

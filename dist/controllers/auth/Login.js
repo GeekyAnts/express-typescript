@@ -28,7 +28,6 @@ class Login {
                 return next(err);
             }
             if (!user) {
-                console.log('error ', info);
                 req.flash('errors', info);
                 return res.redirect('/login');
             }

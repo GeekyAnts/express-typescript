@@ -21,6 +21,7 @@
     "jquery.easing": "^1.4.1",
     "lusca": "^1.6.1",
     "magnific-popup": "^1.1.0",
+    "memory-cache": "^0.2.0",
     "mongoose": "^5.2.9",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",

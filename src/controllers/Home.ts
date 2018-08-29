@@ -7,7 +7,7 @@
 import { IRequest, IResponse } from '../interfaces/vendors';
 
 class Home {
-	public static index (req: IRequest, res: IResponse): void {
+	public static index (req: IRequest, res: IResponse, next): void {
 		res.render('pages/home', {
 			title: 'Home'
 		});

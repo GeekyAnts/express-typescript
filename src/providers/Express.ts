@@ -7,8 +7,10 @@
 import * as express from 'express';
 
 import Bootstrap from '../middlewares/Kernel';
+import ExceptionHandler from '../exception/Handler';
 import Locals from './Locals';
 import router from './Routes';
+import Handler from '../exception/Handler';
 
 class Express {
 	/**
@@ -49,6 +51,11 @@ class Express {
 	 * Starts the express server
 	 */
 	public init (): any {
+		// Registering Exception / Error Handlers
+		this.express.use(ExceptionHandler.logErrors);
+		this.express.use(ExceptionHandler.clientErrorHandler);
+		this.express.use(ExceptionHandler.errorHandler);
+
 		this.express.listen(process.env.PORT, _error => {
 			if (_error) {
 				return console.log('Error: ', _error);

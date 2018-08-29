@@ -7,6 +7,8 @@
 import * as passport from 'passport';
 import { Router } from 'express';
 
+import Cache from './Cache';
+
 import Passport from './Passport';
 import HomeController from '../controllers/Home';
 import RegisterController from '../controllers/Auth/Register';
@@ -15,8 +17,9 @@ import LogoutController from '../controllers/Auth/Logout';
 import AccountController from '../controllers/Account';
 
 const router = Router();
+const cache = Cache.cache;
 
-router.get('/', HomeController.index);
+router.get('/', cache(10), HomeController.index);
 
 router.get('/signup', RegisterController.show);
 router.post('/signup', RegisterController.perform);
