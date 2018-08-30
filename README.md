@@ -48,7 +48,9 @@ It's under construction!
 │   │   └── Routes.ts
 │   ├── services
 │   │   └── strategies
-│   │        └── Local.ts
+│   │        └── Google.ts
+│   │        ├── Local.ts
+│   │        └── Twitter.ts
 │   └── index.ts
 ├── views
 │   ├── includes
