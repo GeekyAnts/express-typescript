@@ -28,8 +28,9 @@
 - locals
 	- with option to pass them into views globally
 
-- auth strategies
-	- local
+- services 
+	- auth strategies
+		- local
 
 - views pages
 	- interpolation of globals & express locals
@@ -40,20 +41,23 @@
 	- home
 	- dashboard
 
+- Imp:
+	- persist memory clear (strong-loop-pm or pm2)
+	- crash handling
+		- with error log & error (ie. under-maintenance) page
+
 # Pending:
 
 - apis
 	- with ignore apis from csrf token
 
-- auth
-	- google
-	- twitter
-	- facebook
-	- instagram
-	- github
+- services
+	- auth strategies
+		- google
+		- twitter
+		- facebook
+		- instagram
+		- github
 
 - jobs
 - acl
-- Imp:
-	- persist memory clear
-	- crash handling
