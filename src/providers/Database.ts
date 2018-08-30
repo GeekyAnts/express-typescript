@@ -8,6 +8,7 @@ import * as mongoose from 'mongoose';
 import Locals from './Locals';
 
 export class Database {
+	// Initialize your database pool
 	public static init (): any {
 		const dsn = Locals.config().mongooseUrl;
 		const options = { useNewUrlParser: true };

@@ -12,9 +12,11 @@ const path = require("path");
 const Express_1 = require("./Express");
 const Database_1 = require("./Database");
 class App {
+    // Loads your dotenv file
     static loadConfiguration() {
         dotenv.config({ path: path.join(__dirname, '../../.env') });
     }
+    // Cluster's your server
     static loadServer() {
         if (cluster.isMaster) {
             for (let i = 0; i < os.cpus().length; i += 1) {
@@ -23,8 +25,11 @@ class App {
         }
         else {
             Express_1.default.init();
-            Database_1.Database.init();
         }
+    }
+    // Loads the Database Pool
+    static loadDatabase() {
+        Database_1.Database.init();
     }
 }
 exports.default = App;

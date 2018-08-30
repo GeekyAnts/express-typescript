@@ -8,6 +8,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
 const dotenv = require("dotenv");
 class Locals {
+    /**
+     * Makes env configs available for your app
+     * throughout the app's runtime
+     */
     static config() {
         dotenv.config({ path: path.join(__dirname, '../../.env') });
         const name = process.env.APP_NAME || 'NodeTS Dashboard';
@@ -28,6 +32,9 @@ class Locals {
             mongooseUrl
         };
     }
+    /**
+     * Injects your config to the app's locals
+     */
     static init(_express) {
         _express.locals.app = this.config();
         return _express;

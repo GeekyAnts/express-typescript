@@ -15,3 +15,8 @@ App.loadConfiguration();
  * Run the Server on Clusters
  */
 App.loadServer();
+
+/**
+ * Run the Database pool
+ */
+App.loadDatabase();

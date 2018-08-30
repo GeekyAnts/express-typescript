@@ -7,6 +7,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class Handler {
     static clientErrorHandler(err, req, res, next) {
+        /**
+         * Handles your api/web routes errors/exception
+         */
         if (req.xhr) {
             res.status(500).send({ error: 'Something went wrong!' });
         }
@@ -15,10 +18,17 @@ class Handler {
         }
     }
     static errorHandler(err, req, res, next) {
+        /**
+         * Show undermaintenance page incase of errors
+         */
         res.status(500);
         res.render('pages/error', { errors: err.stack, title: 'Under Maintenance' });
     }
     static logErrors(err, req, res, next) {
+        /**
+         * Register your error / exception monitoring
+         * tools right here ie. before "next(err)"!
+         */
         next(err);
     }
 }

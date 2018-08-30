@@ -14,4 +14,8 @@ App_1.default.loadConfiguration();
  * Run the Server on Clusters
  */
 App_1.default.loadServer();
+/**
+ * Run the Database pool
+ */
+App_1.default.loadDatabase();
 //# sourceMappingURL=index.js.map

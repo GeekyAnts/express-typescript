@@ -13,10 +13,12 @@ import express from './Express';
 import { Database } from './Database';
 
 class App {
+	// Loads your dotenv file
 	public static loadConfiguration (): void {
 		dotenv.config({ path: path.join(__dirname, '../../.env') });
 	}
 
+	// Cluster's your server
 	public static loadServer (): void {
 		if (cluster.isMaster) {
 			for (let i = 0; i < os.cpus().length; i += 1) {
@@ -24,8 +26,12 @@ class App {
 			}
 		} else {
 			express.init();
-			Database.init();
 		}
+	}
+
+	// Loads the Database Pool
+	public static loadDatabase (): void {
+		Database.init();
 	}
 }
 

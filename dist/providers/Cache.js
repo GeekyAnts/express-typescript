@@ -7,6 +7,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const mcache = require("memory-cache");
 class Cache {
+    /**
+     * Checks for the available cached data
+     * or adds if not available
+     */
     static cache(_duration) {
         return (req, res, next) => {
             let key = '__express__' + req.originalUrl || req.url;
