@@ -7,6 +7,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const passport = require("passport");
 const Local_1 = require("../services/strategies/Local");
+const Google_1 = require("../services/strategies/Google");
+const Twitter_1 = require("../services/strategies/Twitter");
 const User_1 = require("../models/User");
 class Passport {
     static mountPackage(_express) {
@@ -25,6 +27,8 @@ class Passport {
     }
     static mountLocalStrategies() {
         Local_1.default.init(passport);
+        Google_1.default.init(passport);
+        Twitter_1.default.init(passport);
     }
     static isAuthenticated(req, res, next) {
         if (req.isAuthenticated()) {

@@ -4,3 +4,4 @@ package-lock.json
 .cache/
 public/static
 *.marko.js
+.env.example

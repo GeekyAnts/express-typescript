@@ -21,7 +21,7 @@ exports.UserSchema = new Database_1.default.Schema({
     instagram: { type: String },
     linkedin: { type: String },
     steam: { type: String },
-    tokens: { type: String },
+    tokens: Array,
     fullname: { type: String },
     gender: { type: String },
     geolocation: { type: String },

@@ -64,6 +64,8 @@
 
 - jobs
 
+- migrations
+
 - acl
 
 - cheatsheets & documentation

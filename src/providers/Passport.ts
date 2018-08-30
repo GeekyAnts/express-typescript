@@ -7,6 +7,8 @@
 import * as passport from 'passport';
 
 import LocalStrategy from '../services/strategies/Local';
+import GoogleStrategy from '../services/strategies/Google';
+import TwitterStrategy from '../services/strategies/Twitter';
 import User from '../models/User';
 
 class Passport {
@@ -31,6 +33,8 @@ class Passport {
 
 	public static mountLocalStrategies(): any {
 		LocalStrategy.init(passport);
+		GoogleStrategy.init(passport);
+		TwitterStrategy.init(passport);
 	}
 
 	public static isAuthenticated (req, res, next): any {

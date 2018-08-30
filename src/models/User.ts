@@ -31,7 +31,7 @@ export const UserSchema = new mongoose.Schema({
 	instagram: { type: String },
 	linkedin: { type: String },
 	steam: { type: String },
-	tokens: { type: String },
+	tokens: Array,
 
 	fullname: { type: String },
 	gender: { type: String },

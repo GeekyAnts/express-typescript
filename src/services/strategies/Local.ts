@@ -4,12 +4,12 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
-import { Strategy as LocalStrategy } from 'passport-local';
+import { Strategy } from 'passport-local';
 import User from '../../models/User';
 
 class Local {
 	public static init (_passport: any): any {
-		_passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+		_passport.use(new Strategy({ usernameField: 'email' }, (email, password, done) => {
 			User.findOne({ email: email.toLowerCase() }, (err, user) => {
 				if (err) {
 					return done(err);

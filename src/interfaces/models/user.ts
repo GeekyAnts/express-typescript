@@ -4,6 +4,12 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
+export interface Tokens {
+	kind: string;
+	accessToken: string;
+	tokenSecret?: string;
+}
+
 export interface IUser {
 	email: string;
 	password: string;
@@ -16,8 +22,8 @@ export interface IUser {
 	github: string;
 	instagram: string;
 	linkedin: string;
+	tokens: Tokens[];
 	steam: string;
-	tokens: string;
 
 	fullname: string;
 	gender: string;
