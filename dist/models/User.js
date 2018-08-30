@@ -6,10 +6,10 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const crypto = require("crypto");
-const mongoose = require("mongoose");
 const bcrypt = require("bcrypt-nodejs");
+const Database_1 = require("../providers/Database");
 // Define the User Schema
-exports.UserSchema = new mongoose.Schema({
+exports.UserSchema = new Database_1.default.Schema({
     email: { type: String, unique: true },
     password: { type: String },
     passwordResetToken: { type: String },
@@ -73,6 +73,6 @@ exports.UserSchema.methods.gravatar = function (_size) {
     const md5 = crypto.createHash('md5').update(this.email).digest('hex');
     return `${url}/${md5}?s=${_size}&d=retro`;
 };
-const User = mongoose.model('User', exports.UserSchema);
+const User = Database_1.default.model('User', exports.UserSchema);
 exports.default = User;
 //# sourceMappingURL=User.js.map

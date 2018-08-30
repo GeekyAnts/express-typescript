@@ -5,11 +5,10 @@
  */
 
 import * as crypto from 'crypto';
-import * as mongoose from 'mongoose';
 import * as bcrypt from 'bcrypt-nodejs';
 
-// import mongoose from '../providers/Database';
-import { IUser } from '../interfaces/user';
+import { IUser } from '../interfaces/models/user';
+import mongoose from '../providers/Database';
 
 // Create the model schema & register your custom methods here
 export interface IUserModel extends IUser, mongoose.Document {

@@ -14,6 +14,7 @@ export class Database {
 		const options = { useNewUrlParser: true };
 
 		(mongoose as any).Promise = global.Promise;
+
 		mongoose.connect(dsn, options);
 	}
 }

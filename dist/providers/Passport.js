@@ -6,7 +6,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const passport = require("passport");
-const passport_local_1 = require("passport-local");
+const Local_1 = require("../services/strategies/Local");
 const User_1 = require("../models/User");
 class Passport {
     static mountPackage(_express) {
@@ -20,29 +20,11 @@ class Passport {
                 done(err, user);
             });
         });
-        this.mountLocalStrategy();
+        this.mountLocalStrategies();
         return _express;
     }
-    static mountLocalStrategy() {
-        passport.use(new passport_local_1.Strategy({ usernameField: 'email' }, (email, password, done) => {
-            User_1.default.findOne({ email: email.toLowerCase() }, (err, user) => {
-                if (err) {
-                    return done(err);
-                }
-                if (!user) {
-                    return done(null, false, { msg: `E-mail ${email} not found.` });
-                }
-                user.comparePassword(password, (_err, _isMatch) => {
-                    if (_err) {
-                        return done(_err);
-                    }
-                    if (_isMatch) {
-                        return done(null, user);
-                    }
-                    return done(null, false, { msg: 'Invalid E-mail or password.' });
-                });
-            });
-        }));
+    static mountLocalStrategies() {
+        Local_1.default.init(passport);
     }
     static isAuthenticated(req, res, next) {
         if (req.isAuthenticated()) {
