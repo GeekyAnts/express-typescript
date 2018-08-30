@@ -3,7 +3,9 @@
 - typescript 
 	- with express
 	- with tsc lint
+
 - mongoose as database
+
 - dotenv
 
 - middlewares
@@ -48,16 +50,20 @@
 
 # Pending:
 
-- apis
-	- with ignore apis from csrf token
-
 - services
 	- auth strategies
 		- google
+		- github
 		- twitter
 		- facebook
 		- instagram
-		- github
+
+- apis
+	- with jwt
+	- with ignore apis from csrf token
 
 - jobs
+
 - acl
+
+- cheatsheets & documentation
