@@ -14,6 +14,7 @@ import mongoose from '../providers/Database';
 export interface IUserModel extends IUser, mongoose.Document {
 	billingAddress(): string;
 	comparePassword(password: string, cb: any): string;
+	validPassword(password: string, cb: any): string;
 	gravatar(_size: number): string;
 }
 
@@ -75,7 +76,7 @@ UserSchema.methods.billingAddress = function (): string {
 // Compares the user's password with the request password
 UserSchema.methods.comparePassword = function (_requestPassword, _cb): any {
 	bcrypt.compare(_requestPassword, this.password, (_err, _isMatch) => {
-		_cb(_err, _isMatch);
+		return _cb(_err, _isMatch);
 	});
 };
 

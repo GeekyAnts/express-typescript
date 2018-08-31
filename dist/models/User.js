@@ -58,7 +58,7 @@ exports.UserSchema.methods.billingAddress = function () {
 // Compares the user's password with the request password
 exports.UserSchema.methods.comparePassword = function (_requestPassword, _cb) {
     bcrypt.compare(_requestPassword, this.password, (_err, _isMatch) => {
-        _cb(_err, _isMatch);
+        return _cb(_err, _isMatch);
     });
 };
 // User's gravatar

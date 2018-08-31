@@ -6,9 +6,9 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const os = require("os");
+const path = require("path");
 const dotenv = require("dotenv");
 const cluster = require("cluster");
-const path = require("path");
 const Express_1 = require("./Express");
 const Database_1 = require("./Database");
 class App {

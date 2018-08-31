@@ -29,6 +29,8 @@ class Handler {
          * Register your error / exception monitoring
          * tools right here ie. before "next(err)"!
          */
+        console.log(err);
+        console.log(err.stack);
         next(err);
     }
 }

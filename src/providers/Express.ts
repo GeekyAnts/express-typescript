@@ -53,8 +53,8 @@ class Express {
 	public init (): any {
 		// Registering Exception / Error Handlers
 		this.express.use(ExceptionHandler.logErrors);
-		this.express.use(ExceptionHandler.clientErrorHandler);
-		this.express.use(ExceptionHandler.errorHandler);
+		// this.express.use(ExceptionHandler.clientErrorHandler);
+		// this.express.use(ExceptionHandler.errorHandler);
 
 		// Start the server on the specified port
 		this.express.listen(process.env.PORT, _error => {

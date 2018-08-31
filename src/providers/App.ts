@@ -5,9 +5,9 @@
  */
 
 import * as os from 'os';
+import * as path from 'path';
 import * as dotenv from 'dotenv';
 import * as cluster from 'cluster';
-import * as path from 'path';
 
 import express from './Express';
 import { Database } from './Database';

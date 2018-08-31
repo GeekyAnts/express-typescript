@@ -41,8 +41,8 @@ class Express {
     init() {
         // Registering Exception / Error Handlers
         this.express.use(Handler_1.default.logErrors);
-        this.express.use(Handler_1.default.clientErrorHandler);
-        this.express.use(Handler_1.default.errorHandler);
+        // this.express.use(ExceptionHandler.clientErrorHandler);
+        // this.express.use(ExceptionHandler.errorHandler);
         // Start the server on the specified port
         this.express.listen(process.env.PORT, _error => {
             if (_error) {

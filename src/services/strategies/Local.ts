@@ -19,6 +19,10 @@ class Local {
 					return done(null, false, { msg: `E-mail ${email} not found.`});
 				}
 
+				if (user && !user.password) {
+					return done(null, false, { msg: `E-mail ${email} was not registered with us using any password. Please use the appropriate providers to Log-In again!`});
+				}
+
 				user.comparePassword(password, (_err, _isMatch) => {
 					if (_err) {
 						return done(_err);
