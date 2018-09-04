@@ -6,10 +6,10 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
-const Kernel_1 = require("../middlewares/Kernel");
-const Handler_1 = require("../exception/Handler");
 const Locals_1 = require("./Locals");
 const Routes_1 = require("./Routes");
+const Kernel_1 = require("../middlewares/Kernel");
+const Handler_1 = require("../exception/Handler");
 class Express {
     /**
      * Initializes the express server
@@ -41,8 +41,8 @@ class Express {
     init() {
         // Registering Exception / Error Handlers
         this.express.use(Handler_1.default.logErrors);
-        // this.express.use(ExceptionHandler.clientErrorHandler);
-        // this.express.use(ExceptionHandler.errorHandler);
+        this.express.use(Handler_1.default.clientErrorHandler);
+        this.express.use(Handler_1.default.errorHandler);
         // Start the server on the specified port
         this.express.listen(process.env.PORT, _error => {
             if (_error) {

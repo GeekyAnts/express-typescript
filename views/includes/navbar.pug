@@ -6,20 +6,30 @@ nav#mainNav.navbar.navbar-expand-lg.bg-secondary.fixed-top.text-uppercase
       | Menu
       i.fa.fa-bars
     #navbarResponsive.collapse.navbar-collapse
-      ul.navbar-nav.ml-auto        
+      ul.navbar-nav.ml-auto
         if !user
           li.nav-item.mx-0.mx-lg-1
             a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/login') LogIn
           li.nav-item.mx-0.mx-lg-1
             a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/signup') Register
+          li.nav-item.mx-0.mx-lg-1
+            a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/#portfolio') Portfolio
+          li.nav-item.mx-0.mx-lg-1
+            a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/#about') About
+          li.nav-item.mx-0.mx-lg-1
+            a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/#contact') Contact  
         else
-          li.nav-item.mx-0.mx-lg-1
-            a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#') #{user.email}
-          li.nav-item.mx-0.mx-lg-1
-            a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/logout') Logout
-        li.nav-item.mx-0.mx-lg-1
-          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/#portfolio') Portfolio
-        li.nav-item.mx-0.mx-lg-1
-          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/#about') About
-        li.nav-item.mx-0.mx-lg-1
-          a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/#contact') Contact        
+          .dropdown.text-white
+            li#dropdownMenu.nav-item.mx-0.mg-lg-1.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+              img.img-thumbnail.rounded-circle(src=user.picture)
+            .dropdown-menu.dropdown-menu-right(aria-labelledby="dropdownMenu")
+              a.dropdown-item.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger.disabled(href='#') #{user.email}
+              .dropdown-divider
+              a.dropdown-item.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/account') Dashboard
+              a.dropdown-item.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/#portfolio') Portfolio
+              a.dropdown-item.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/#about') About
+              a.dropdown-item.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/#contact') Contact
+              .dropdown-divider
+              a.dropdown-item.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='/logout') Logout
+            
+              

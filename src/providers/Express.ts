@@ -6,11 +6,10 @@
 
 import * as express from 'express';
 
-import Bootstrap from '../middlewares/Kernel';
-import ExceptionHandler from '../exception/Handler';
 import Locals from './Locals';
 import router from './Routes';
-import Handler from '../exception/Handler';
+import Bootstrap from '../middlewares/Kernel';
+import ExceptionHandler from '../exception/Handler';
 
 class Express {
 	/**
@@ -53,8 +52,8 @@ class Express {
 	public init (): any {
 		// Registering Exception / Error Handlers
 		this.express.use(ExceptionHandler.logErrors);
-		// this.express.use(ExceptionHandler.clientErrorHandler);
-		// this.express.use(ExceptionHandler.errorHandler);
+		this.express.use(ExceptionHandler.clientErrorHandler);
+		this.express.use(ExceptionHandler.errorHandler);
 
 		// Start the server on the specified port
 		this.express.listen(process.env.PORT, _error => {
