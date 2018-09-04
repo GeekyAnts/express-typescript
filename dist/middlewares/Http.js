@@ -23,6 +23,7 @@ class Http {
         }));
         _express.use(bodyParser.urlencoded({
             limit: Locals_1.default.config().maxUploadLimit,
+            parameterLimit: Locals_1.default.config().maxParameterLimit,
             extended: false
         }));
         // Disable the x-powered-by header in response
