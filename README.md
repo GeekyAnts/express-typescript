@@ -71,7 +71,7 @@ It's under construction!
 └── tslint.json
 ```
 
-## How do I setup this up?
+## How do I setup this repo?
 
 Below mentioned are the steps to install, configure & run in your platform/distributions.
 
