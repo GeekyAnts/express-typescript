@@ -23,6 +23,7 @@ class Locals {
 		const description = process.env.APP_DESCRIPTION || 'Here goes the app description';
 		const appSecret = process.env.APP_SECRET || 'This is your responsibility!';
 		const mongooseUrl = process.env.MONGOOSE_URL;
+		const maxUploadLimit = process.env.APP_MAX_UPLOAD_LIMIT || '50mb';
 
 		return {
 			name,
@@ -31,7 +32,8 @@ class Locals {
 			copyright,
 			description,
 			appSecret,
-			mongooseUrl
+			mongooseUrl,
+			maxUploadLimit
 		};
 	}
 

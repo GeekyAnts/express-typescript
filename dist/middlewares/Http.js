@@ -18,8 +18,13 @@ const MongoStore = connect(session);
 class Http {
     static mountExpressAPIs(_express) {
         // Enables the request body parser
-        _express.use(bodyParser.json());
-        _express.use(bodyParser.urlencoded({ extended: false }));
+        _express.use(bodyParser.json({
+            limit: Locals_1.default.config().maxUploadLimit
+        }));
+        _express.use(bodyParser.urlencoded({
+            limit: Locals_1.default.config().maxUploadLimit,
+            extended: false
+        }));
         // Disable the x-powered-by header in response
         _express.disable('x-powered-by');
         // Enables the request payload validator
