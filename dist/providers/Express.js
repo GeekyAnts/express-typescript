@@ -43,6 +43,7 @@ class Express {
         this.express.use(Handler_1.default.logErrors);
         this.express.use(Handler_1.default.clientErrorHandler);
         this.express.use(Handler_1.default.errorHandler);
+        this.express = Handler_1.default.notFoundHandler(this.express);
         // Start the server on the specified port
         this.express.listen(process.env.PORT, _error => {
             if (_error) {

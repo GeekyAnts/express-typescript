@@ -5,6 +5,21 @@
  */
 
 class Handler {
+	public static notFoundHandler(_express) {
+		/**
+		 * Handles all the not found routes
+		 */
+		_express.use('*', function(req, res) {
+			res.status(404);
+			res.render('pages/error', {
+				title: 'Page Not Found',
+				errors: []
+			});
+		});
+
+		return _express;
+	}
+
 	public static clientErrorHandler(err, req, res, next): void {
 		/**
 		 * Handles your api/web routes errors/exception

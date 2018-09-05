@@ -4,8 +4,13 @@ block content
 	// Error Section
 	section#error.container-padding
 		.container
-			h2.text-center.text-uppercase.text-secondary.mb-0 We are under maintainance
+			if title
+				h2.text-center.text-uppercase.text-secondary.mb-0 #{title}!
+			else
+				h2.text-center.text-uppercase.text-secondary.mb-0 We are under maintainance
+			
 			hr.star-dark.mb-5
-			.row
+			
+			.row.text-center
 				.col-lg-12.mx-auto
 				| #{errors}

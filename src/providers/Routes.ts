@@ -22,10 +22,10 @@ const cache = Cache.cache;
 
 router.get('/', cache(10), HomeController.index);
 
-router.get('/signup', RegisterController.show);
+router.get('/signup', cache(10), RegisterController.show);
 router.post('/signup', RegisterController.perform);
 
-router.get('/login', LoginController.show);
+router.get('/login', cache(10), LoginController.show);
 router.post('/login', LoginController.perform);
 
 router.get('/logout', LogoutController.perform);
