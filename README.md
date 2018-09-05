@@ -2,12 +2,12 @@
 
 It's under construction!
 
-## What is required globally?
+## Global Requisite
 
-* tsc
-* typescript
-* node
-* mongoose
+* node (>= 10.5.0)
+* tsc (>= 3.0.1)
+* typescript (>= 3.0.1)
+* mongoose (>= 3.6.2)
 
 ## App Structure
 
@@ -71,7 +71,7 @@ It's under construction!
 └── tslint.json
 ```
 
-## How do I setup this repo?
+## Install, Configure & Run
 
 Below mentioned are the steps to install, configure & run in your platform/distributions.
 
