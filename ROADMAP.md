@@ -47,14 +47,18 @@
 	- persist memory clear (strong-loop-pm or pm2)
 	- crash handling
 		- with error log & error (ie. under-maintenance) page
+		- page not found handler
+
+- services
+	- auth strategies
+		- google
+		- twitter
 
 # Pending:
 
 - services
 	- auth strategies
-		- google
 		- github
-		- twitter
 		- facebook
 		- instagram
 
@@ -63,9 +67,5 @@
 	- with ignore apis from csrf token
 
 - jobs
-
-- migrations
-
-- acl
 
 - cheatsheets & documentation
