@@ -45,7 +45,8 @@ class Handler {
 		 * tools right here ie. before "next(err)"!
 		 */
 		console.log(err);
-		console.log(err.stack);
+		// console.log(err.message);
+		// console.log(err.stack);
 		next(err);
 	}
 }
