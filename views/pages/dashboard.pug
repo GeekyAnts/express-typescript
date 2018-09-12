@@ -2,6 +2,9 @@ extends ../layout.pug
 
 block content
 	include ../partials/flash
-	
 	section.container.container-padding
-		h1 Congrats! You're In. #{user.email}
+		.row
+			.col-lg-6.mx-auto
+				include ../partials/update-profile
+			.col-lg-6.mx-auto
+				include ../partials/update-password

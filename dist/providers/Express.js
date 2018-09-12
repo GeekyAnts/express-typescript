@@ -33,7 +33,8 @@ class Express {
      * Mounts all the defined routes
      */
     mountRoutes() {
-        this.express.use('/', Routes_1.default);
+        this.express = Routes_1.default.mountWeb(this.express);
+        this.express = Routes_1.default.mountApi(this.express);
     }
     /**
      * Starts the express server

@@ -47,6 +47,9 @@ It's under construction!
 │   │   ├── Locals.ts
 │   │   ├── Passport.ts
 │   │   └── Routes.ts
+│   ├── routes
+│   │   ├── Api.ts
+│   │   └── Web.ts
 │   ├── services
 │   │   └── strategies
 │   │        ├── Google.ts

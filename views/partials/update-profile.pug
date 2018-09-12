@@ -1,0 +1,24 @@
+h2.text-center.text-uppercase.text-secondary.mb-0 Profile
+hr.star-dark.mb-5
+include ../partials/flash
+form#profileForm(name='profileForm', novalidate='novalidate', action='/profile', method='POST')
+	input(type='hidden', name='_csrf', value=_csrf)
+	.control-group
+		.form-group.floating-label-form-group.controls.mb-0.pb-2
+			label(for='fullname') Full Name
+			input#profile-fullname.form-control(type='text', name='fullname', placeholder='Full Name', required='required', data-validation-required-message='Please enter your fullname.', value=user.fullname)
+			p.help-block.text-danger
+	.control-group
+		.form-group.floating-label-form-group.controls.mb-0.pb-2
+			label(for='profile-email') Email Address
+			input#profile-email.form-control(type='email', name='email', placeholder='Email Address', data-validation-required-message='Please enter your email address.', autocomplete='email', value=user.email)
+			p.help-block.text-danger
+	.control-group
+		.form-group.floating-label-form-group.controls.mb-0.pb-2
+			label(for='profile-geolocation') Email Address
+			input#profile-geolocation.form-control(type='text', name='geolocation', placeholder='Geo Location', data-validation-required-message='Please enter your geo location.', autocomplete='email', value=user.geolocation)
+			p.help-block.text-danger
+	br
+	#success
+	.form-group
+		button#submitProfile.btn.btn-primary.btn-xl(type='submit') Update Profile

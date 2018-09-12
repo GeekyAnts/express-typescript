@@ -7,7 +7,7 @@
 import * as express from 'express';
 
 import Locals from './Locals';
-import router from './Routes';
+import Routes from './Routes';
 import Bootstrap from '../middlewares/Kernel';
 import ExceptionHandler from '../exception/Handler';
 
@@ -43,7 +43,8 @@ class Express {
 	 * Mounts all the defined routes
 	 */
 	private mountRoutes (): void {
-		this.express.use('/', router);
+		this.express = Routes.mountWeb(this.express);
+		this.express = Routes.mountApi(this.express);
 	}
 
 	/**
