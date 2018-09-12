@@ -4,10 +4,10 @@ It's under construction!
 
 ## Table of Contens
 
-* [Screens](/#screens)
-* [Global Requisite](/#global-requisite)
-* [App Structure](/#app-structure)
-* [Install, Configure & Run](/#install-configure--run)
+* [Screens](#screens)
+* [Global Requisite](#global-requisite)
+* [App Structure](#app-structure)
+* [Install, Configure & Run](#install-configure--run)
 
 ## Screens
 
