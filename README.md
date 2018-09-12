@@ -2,7 +2,7 @@
 
 It's under construction!
 
-## Table of Contents
+## Contents
 
 * [Screens](#screens)
 * [Global Requisite](#global-requisite)
