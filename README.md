@@ -1,22 +1,22 @@
-## Description
+# Description
 
 It's under construction!
 
-## Contents
+# Contents
 
 * [Global Requisite](#global-requisite)
 * [App Structure](#app-structure)
 * [Install, Configure & Run](#install-configure--run)
 * [Screens](#screens)
 
-## Global Requisite
+# Global Requisite
 
 * node (>= 10.5.0)
 * tsc (>= 3.0.1)
 * typescript (>= 3.0.1)
 * mongoose (>= 3.6.2)
 
-## App Structure
+# App Structure
 
 > _Note: I am mentioning only files/folders which you need to configure if required_
 
@@ -88,7 +88,7 @@ It's under construction!
 └── tslint.json
 ```
 
-## Install, Configure & Run
+# Install, Configure & Run
 
 Below mentioned are the steps to install, configure & run in your platform/distributions.
 
@@ -114,37 +114,37 @@ npm run dev;
 ```
 
 
-## Screens
+# Screens
 
-### Home / Landing Page
+## Home / Landing Page
 
 ![Home / Landing Page](/screens/Home.png)
 > Note: This page has sub-sections, like about-us, contact-us & portfolio
 
-### LogIn Page
+## LogIn Page
 
 ![LogIn Page](/screens/Login.png)
 > Note: LogIn with Providers
 
-### SignUp Page
+## SignUp Page
 
 ![SignUp Page](/screens/SignUp.png)
 > Note: SignUp with Providers
 
-### Dashboard Page
+## Dashboard Page
 
 ![Dashboard Page](/screens/Dashboard.png)
 
-### With Dropdown Menu
+## With Dropdown Menu
 
 ![Dashboard Page with Dropdown Menu](/screens/DashboardWithDropdown.png)
 
-### Page Not Found Page
+## Page Not Found Page
 
 ![Page Not Found Page](/screens/PageNotFound.png)
 > Note: In case, the requested URI does not exist, app shows this page
 
-### Under Maintenance Page
+## Under Maintenance Page
 
 ![Under Maintenance Page](/screens/UnderMaintenance.png)
 > Note: In case, a error is generated so instead of plain error we show under maintenance page
