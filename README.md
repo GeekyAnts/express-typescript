@@ -7,6 +7,7 @@ It's under construction!
 * [Global Requisite](#global-requisite)
 * [App Structure](#app-structure)
 * [Install, Configure & Run](#install-configure--run)
+* [List of Routes](#list-of-routes)
 * [Screens](#screens)
 
 # Global Requisite
@@ -119,6 +120,38 @@ vim .env;
 npm run dev;
 ```
 
+# List of Routes:
+
+```sh
+# Web Routes:
+
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  GET    | /
+  GET    | /signup
+  POST   | /signup
+  GET    | /login
+  POST   | /login
+  GET    | /logout
+  GET    | /account
+  GET    | /auth/google
+  GET    | /auth/google/callback
+  GET    | /auth/twitter
+  GET    | /auth/twitter/callback
++--------+-------------------------+
+
+# API Routes:
+
++--------+-------------------------+
+  Method | URI
++--------+-------------------------+
+  POST   | /api
+  POST   | /api/auth/login
+  POST   | /api/auth/register
+  POST   | /api/auth/refresh-token
++--------+-------------------------+
+```
 
 # Screens
 
