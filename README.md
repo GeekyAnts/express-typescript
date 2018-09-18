@@ -106,6 +106,8 @@ git clone https://github.com/faizahmedfarooqui/nodets.git;
 cd nodets;
 
 # Install NPM dependencies.
+# Note: You can review the list of dependencies from the below link.
+# https://github.com/faizahmedfarooqui/nodets/network/dependencies
 npm install;
 
 # Edit your DotEnv file using any editor of your choice.
