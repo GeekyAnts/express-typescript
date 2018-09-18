@@ -80,6 +80,7 @@ It's under construction!
 │   │        ├── IRequest.ts
 │   │        └── IResponse.ts
 │   ├── middlewares
+│   │   ├── CORS.ts
 │   │   ├── CsrfToken.ts
 │   │   ├── Http.ts
 │   │   ├── Kernel.ts
