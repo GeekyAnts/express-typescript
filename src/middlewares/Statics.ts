@@ -8,7 +8,7 @@ import * as path from 'path';
 import * as express from 'express';
 
 class Statics {
-	public static mountStatics (_express): any {
+	public static mount(_express): any {
 		// Loads Options
 		const options = { maxAge: 31557600000 };
 

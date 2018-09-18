@@ -4,50 +4,79 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
+import Locals from '../providers/Locals';
+
 class Handler {
-	public static notFoundHandler(_express) {
-		/**
-		 * Handles all the not found routes
-		 */
-		_express.use('*', function(req, res) {
-			res.status(404);
-			res.render('pages/error', {
-				title: 'Page Not Found',
-				errors: []
-			});
+	/**
+	 * Handles all the not found routes
+	 */
+	public static notFoundHandler(_express): any {
+		const apiPrefix = Locals.config().apiPrefix;
+
+		_express.use('*', (req, res) => {
+			if (req.xhr || req.originalUrl.includes(`/${apiPrefix}/`)) {
+				return res.json({
+					error: 'Page Not Found'
+				});
+			} else {
+				res.status(404);
+				return res.render('pages/error', {
+					title: 'Page Not Found',
+					error: []
+				});
+			}
 		});
 
 		return _express;
 	}
 
-	public static clientErrorHandler(err, req, res, next): void {
-		/**
-		 * Handles your api/web routes errors/exception
-		 */
+	/**
+	 * Handles your api/web routes errors/exception
+	 */
+	public static clientErrorHandler(err, req, res, next): any {
 		if (req.xhr) {
-			res.status(500).send({error: 'Something went wrong!'});
+			return res.status(500).send({error: 'Something went wrong!'});
 		} else {
-			next(err);
+			return next(err);
 		}
 	}
 
-	public static errorHandler(err, req, res, next): void {
-		/**
-		 * Show undermaintenance page incase of errors
-		 */
+	/**
+	 * Show undermaintenance page incase of errors
+	 */
+	public static errorHandler(err, req, res, next): any {
 		res.status(500);
-		res.render('pages/error', { errors: err.stack, title: 'Under Maintenance' });
+
+		const apiPrefix = Locals.config().apiPrefix;
+		if (req.originalUrl.includes(`/${apiPrefix}/`)) {
+
+			if (err.name && err.name === 'UnauthorizedError') {
+				const innerMessage = err.inner && err.inner.message ? err.inner.message : undefined;
+				return res.json({
+					error: [
+						'Invalid Token!',
+						innerMessage
+					]
+				});
+			}
+
+			return res.json({
+				error: err
+			});
+		}
+
+		return res.render('pages/error', { error: err.stack, title: 'Under Maintenance' });
 	}
 
-	public static logErrors(err, req, res, next): void {
-		/**
-		 * Register your error / exception monitoring
-		 * tools right here ie. before "next(err)"!
-		 */
+	/**
+	 * Register your error / exception monitoring
+	 * tools right here ie. before "next(err)"!
+	 */
+	public static logErrors(err, req, res, next): any {
 		console.log(err);
 		// console.log(err.message);
 		// console.log(err.stack);
-		next(err);
+		return next(err);
 	}
 }
 

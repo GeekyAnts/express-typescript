@@ -8,7 +8,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
 const express = require("express");
 class Statics {
-    static mountStatics(_express) {
+    static mount(_express) {
         // Loads Options
         const options = { maxAge: 31557600000 };
         // Load Statics

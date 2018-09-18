@@ -60,6 +60,12 @@ It's under construction!
 ├── public
 ├── src
 │   ├── controllers
+│   │   ├── Api
+│   │   │   ├── Auth
+│   │   │   │   ├── Login.ts
+│   │   │   │   ├── RefreshToken.ts
+│   │   │   │   └── Register.ts
+│   │   │   └── Home.ts
 │   │   ├── Auth
 │   │   ├── Account.ts
 │   │   └── Home.ts

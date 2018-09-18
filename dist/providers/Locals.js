@@ -16,6 +16,7 @@ class Locals {
         dotenv.config({ path: path.join(__dirname, '../../.env') });
         const name = process.env.APP_NAME || 'NodeTS Dashboard';
         const url = process.env.APP_URL || `http://localhost:${process.env.PORT}`;
+        const keywords = process.env.APP_KEYWORDS || 'somethings';
         const year = (new Date()).getFullYear();
         const copyright = `Copyright ${year} ${name} | All Rights Reserved`;
         const company = process.env.COMPANY_NAME || 'GeekyAnts';
@@ -24,16 +25,23 @@ class Locals {
         const mongooseUrl = process.env.MONGOOSE_URL;
         const maxUploadLimit = process.env.APP_MAX_UPLOAD_LIMIT || '50mb';
         const maxParameterLimit = process.env.APP_MAX_PARAMETER_LIMIT || '50mb';
+        const isCORSEnabled = process.env.CORS_ENABLED || true;
+        const jwtExpiresIn = process.env.JWT_EXPIRES_IN || 3;
+        const apiPrefix = process.env.API_PREFIX || 'api';
         return {
-            name,
+            appSecret,
+            apiPrefix,
             company,
-            url,
             copyright,
             description,
-            appSecret,
-            mongooseUrl,
+            isCORSEnabled,
+            jwtExpiresIn,
+            keywords,
             maxUploadLimit,
-            maxParameterLimit
+            maxParameterLimit,
+            mongooseUrl,
+            name,
+            url
         };
     }
     /**

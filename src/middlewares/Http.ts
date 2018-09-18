@@ -18,7 +18,7 @@ import Passport from '../providers/Passport';
 const MongoStore = connect(session);
 
 class Http {
-	public static mountExpressAPIs (_express): any {
+	public static mount(_express): any {
 		// Enables the request body parser
 		_express.use(bodyParser.json({
 			limit: Locals.config().maxUploadLimit

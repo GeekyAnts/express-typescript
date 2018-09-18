@@ -4,6 +4,8 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
+import Locals from './Locals';
+
 import webRouter from './../routes/Web';
 import apiRouter from './../routes/Api';
 
@@ -13,7 +15,9 @@ class Routes {
 	}
 
 	public static mountApi(_express): any {
-		return _express.use('/api', apiRouter);
+		const apiPrefix = Locals.config().apiPrefix;
+
+		return _express.use(`/${apiPrefix}`, apiRouter);
 	}
 }
 

@@ -16,7 +16,7 @@ const Locals_1 = require("../providers/Locals");
 const Passport_1 = require("../providers/Passport");
 const MongoStore = connect(session);
 class Http {
-    static mountExpressAPIs(_express) {
+    static mount(_express) {
         // Enables the request body parser
         _express.use(bodyParser.json({
             limit: Locals_1.default.config().maxUploadLimit

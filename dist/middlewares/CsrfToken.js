@@ -7,17 +7,26 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const lusca = require("lusca");
+const Locals_1 = require("../providers/Locals");
 class CsrfToken {
-    static mountVerifyCsrf(_express) {
+    static mount(_express) {
         _express.set('trust proxy', 1);
         // Interpolate the user variable into your pug files
         _express.use((req, res, next) => {
             res.locals.user = req.user;
+            res.locals.app = Locals_1.default.config();
             next();
         });
-        // Enable only for web routes
+        // Check for CSRF token iff the original url
+        // does not contains the api substring
         _express.use((req, res, next) => {
-            lusca.csrf()(req, res, next);
+            const apiPrefix = Locals_1.default.config().apiPrefix;
+            if (req.originalUrl.includes(`/${apiPrefix}/`)) {
+                next();
+            }
+            else {
+                lusca.csrf()(req, res, next);
+            }
         });
         // Enables x-frame-options headers
         _express.use(lusca.xframe('SAMEORIGIN'));

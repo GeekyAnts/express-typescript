@@ -7,7 +7,7 @@
 import * as path from 'path';
 
 class Views {
-	public static mountView (_express): any {
+	public static mount(_express): any {
 		_express.set('view engine', 'pug');
 		_express.set('view options', { pretty: true });
 		_express.set('views', path.join(__dirname, '../../views'));
