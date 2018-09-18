@@ -32,6 +32,10 @@ It's under construction!
 │   │   │   │   └── Register.ts
 │   │   │   └── Home.ts
 │   │   ├── Auth
+│   │   │   ├── Login.ts
+│   │   │   ├── Logout.ts
+│   │   │   ├── Register.ts
+│   │   │   └── Social.ts
 │   │   ├── Account.ts
 │   │   └── Home.ts
 │   ├── exception
