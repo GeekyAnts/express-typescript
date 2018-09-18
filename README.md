@@ -2,7 +2,11 @@
 
 A boilerplate for [Node.js](https://nodejs.org/en) App.
 
-This boilerplate is built using [Express.js](https://expressjs.com/) web framework, and have used [Typescript Lang](https://www.typescriptlang.org/) for writing the app's logic.
+This boilerplate is built using [Express.js](https://expressjs.com/) web framework, and have used [Typescript Lang](https://www.typescriptlang.org/) for writing the app's logic. 
+
+This app also uses the Node.js's [Cluster API](https://nodejs.org/api/cluster.html), this helps us to take advantage of multi-core systems to handle the load.
+
+For storing configuration into the `process.env`, [DOTENV](https://github.com/motdotla/dotenv) for Node.js is used.
 
 For Database, this repo contains the use of [Mongoose](https://mongoosejs.com/) (ie. [MongoDB](https://www.mongodb.com/) object modeling for [Node.js](https://nodejs.org/en/)).
 
