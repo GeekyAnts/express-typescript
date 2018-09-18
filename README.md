@@ -2,8 +2,7 @@
 
 A boilerplate for [Node.js](https://nodejs.org/en) App.
 
-This boilerplate is built using [Express.js](https://expressjs.com/) web framework. <br />
-And have used [Typescript Lang](https://www.typescriptlang.org/) for writing the app's logic.
+This boilerplate is built using [Express.js](https://expressjs.com/) web framework, and have used [Typescript Lang](https://www.typescriptlang.org/) for writing the app's logic.
 
 For Database, this repo contains the use of [Mongoose](https://mongoosejs.com/) (ie. [MongoDB](https://www.mongodb.com/) object modeling for [Node.js](https://nodejs.org/en/))
 
