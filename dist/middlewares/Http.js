@@ -12,6 +12,7 @@ const connect = require("connect-mongo");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const expressValidator = require("express-validator");
+const expressStatusMonitor = require("express-status-monitor");
 const Locals_1 = require("../providers/Locals");
 const Passport_1 = require("../providers/Passport");
 const MongoStore = connect(session);
@@ -57,6 +58,8 @@ class Http {
         _express.use(compress());
         // Loads the passport configuration
         _express = Passport_1.default.mountPackage(_express);
+        // Loads the express status monitor middleware
+        _express.use(expressStatusMonitor());
         return _express;
     }
 }

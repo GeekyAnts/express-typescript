@@ -6,6 +6,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const passport = require("passport");
+const Log_1 = require("../../middlewares/Log");
 class Login {
     static show(req, res) {
         res.render('pages/login', {
@@ -23,7 +24,9 @@ class Login {
             req.flash('errors', errors);
             return res.redirect('/login');
         }
+        Log_1.default.info('Here in the login controller #1!');
         passport.authenticate('local', (err, user, info) => {
+            Log_1.default.info('Here in the login controller #2!');
             if (err) {
                 return next(err);
             }

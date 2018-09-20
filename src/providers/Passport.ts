@@ -4,6 +4,7 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
+import { Application } from 'express';
 import * as passport from 'passport';
 
 import LocalStrategy from '../services/strategies/Local';
@@ -12,15 +13,15 @@ import TwitterStrategy from '../services/strategies/Twitter';
 import User from '../models/User';
 
 class Passport {
-	public static mountPackage (_express): any {
+	public mountPackage (_express: Application): Application {
 		_express = _express.use(passport.initialize());
 		_express = _express.use(passport.session());
 
-		passport.serializeUser ((user, done) => {
+		passport.serializeUser<any, any>((user, done) => {
 			done(null, user.id);
 		});
 
-		passport.deserializeUser ((id, done) => {
+		passport.deserializeUser<any, any>((id, done) => {
 			User.findById(id, (err, user) => {
 				done(err, user);
 			});
@@ -31,13 +32,13 @@ class Passport {
 		return _express;
 	}
 
-	public static mountLocalStrategies(): any {
+	public mountLocalStrategies(): void {
 		LocalStrategy.init(passport);
 		GoogleStrategy.init(passport);
 		TwitterStrategy.init(passport);
 	}
 
-	public static isAuthenticated (req, res, next): any {
+	public isAuthenticated (req, res, next): any {
 		if (req.isAuthenticated()) {
 			return next();
 		}
@@ -46,7 +47,7 @@ class Passport {
 		res.redirect('/login');
 	}
 
-	public static isAuthorized (req, res, next): any {
+	public isAuthorized (req, res, next): any {
 		const provider = req.path.split('/').slice(-1)[0];
 		const token = req.user.tokens.find(token => token.kind === provider);
 		if (token) {
@@ -57,4 +58,4 @@ class Passport {
 	}
 }
 
-export default Passport;
+export default new Passport;

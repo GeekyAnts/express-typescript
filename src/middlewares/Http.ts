@@ -5,12 +5,14 @@
  */
 
 import * as cors from 'cors';
+import { Application } from 'express';
 import * as flash from 'express-flash';
 import * as compress from 'compression';
 import * as connect from 'connect-mongo';
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as expressValidator from 'express-validator';
+import * as expressStatusMonitor from 'express-status-monitor';
 
 import Locals from '../providers/Locals';
 import Passport from '../providers/Passport';
@@ -18,7 +20,7 @@ import Passport from '../providers/Passport';
 const MongoStore = connect(session);
 
 class Http {
-	public static mount(_express): any {
+	public static mount(_express: Application): Application {
 		// Enables the request body parser
 		_express.use(bodyParser.json({
 			limit: Locals.config().maxUploadLimit
@@ -68,6 +70,9 @@ class Http {
 
 		// Loads the passport configuration
 		_express = Passport.mountPackage(_express);
+
+		// Loads the express status monitor middleware
+		_express.use(expressStatusMonitor());
 
 		return _express;
 	}

@@ -6,7 +6,10 @@
 
 import * as passport from 'passport';
 
-import { IRequest, IResponse, INext } from '../../interfaces/vendors';
+import {
+	IRequest, IResponse, INext
+} from '../../interfaces/vendors';
+import Log from '../../middlewares/Log';
 
 class Login {
 	public static show (req: IRequest, res: IResponse): any {
@@ -28,7 +31,9 @@ class Login {
 			return res.redirect('/login');
 		}
 
+		Log.info('Here in the login controller #1!');
 		passport.authenticate('local', (err, user, info) => {
+			Log.info('Here in the login controller #2!');
 			if (err) {
 				return next(err);
 			}

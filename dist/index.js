@@ -19,16 +19,6 @@ if (cluster.isMaster) {
      */
     App_1.default.loadConfiguration();
     /**
-     * Run the Database pool
-     */
-    App_1.default.loadDatabase();
-    /**
-     * Run the Worker every minute
-     * Note: we normally start worker after
-     * the entire app is loaded
-     */
-    setTimeout(() => App_1.default.loadWorker(), 1000 * 60);
-    /**
      * Find the number of available CPUS
      */
     const CPUS = os.cpus();
@@ -43,8 +33,18 @@ if (cluster.isMaster) {
         // Ensuring a new cluster will start if an old one dies
         cluster.fork();
     });
+    /**
+     * Run the Worker every minute
+     * Note: we normally start worker after
+     * the entire app is loaded
+     */
+    setTimeout(() => App_1.default.loadWorker(), 1000 * 60);
 }
 else {
+    /**
+     * Run the Database pool
+     */
+    App_1.default.loadDatabase();
     /**
      * Run the Server on Clusters
      */

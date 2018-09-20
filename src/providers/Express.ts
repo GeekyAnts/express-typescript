@@ -15,7 +15,7 @@ class Express {
 	/**
 	 * Create the express object
 	 */
-	public express: any;
+	public express: express.Application;
 
 	/**
 	 * Initializes the express server
@@ -60,7 +60,7 @@ class Express {
 		this.express = ExceptionHandler.notFoundHandler(this.express);
 
 		// Start the server on the specified port
-		this.express.listen(port, _error => {
+		this.express.listen(port, (_error: any) => {
 			if (_error) {
 				return console.log('Error: ', _error);
 			}

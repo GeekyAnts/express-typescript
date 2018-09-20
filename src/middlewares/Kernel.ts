@@ -4,6 +4,8 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
+import { Application } from 'express';
+
 import CORS from './CORS';
 import Http from './Http';
 import Views from './Views';
@@ -12,7 +14,7 @@ import CsrfToken from './CsrfToken';
 import Locals from '../providers/Locals';
 
 class Kernel {
-	public static init (_express): any {
+	public static init (_express: Application): Application {
 		// Check if CORS is enabled
 		if (Locals.config().isCORSEnabled) {
 			// Mount CORS middleware

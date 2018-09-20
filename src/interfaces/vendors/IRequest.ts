@@ -4,7 +4,7 @@
  * @author Faiz A. Farooqui <faiz@geeekyants.com>
  */
 
-import { Request } from 'express-serve-static-core';
+import { Request } from 'express';
 
 export interface IRequest extends Request {
 	flash(message: string, callback: any): any;

@@ -4,6 +4,7 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
+import { Application } from 'express';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
 
@@ -54,7 +55,7 @@ class Locals {
 	/**
 	 * Injects your config to the app's locals
 	 */
-	public static init (_express): any {
+	public static init (_express: Application): Application {
 		_express.locals.app = this.config();
 		return _express;
 	}
