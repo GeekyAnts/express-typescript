@@ -9,6 +9,8 @@ A boilerplate for [Node.js](https://nodejs.org/en) App.
 * For Cache, this repo contains the use of [memory-cache](https://github.com/ptarjan/node-cache#readme) (ie. A simple in-memory cache for node.js).
 * For Routing, this repo contains the use [express-router](https://expressjs.com/en/guide/routing.html) & have distributed Routes into two files ie. Web Routes & API Routes. The web routes are using [CSRF Token](https://github.com/krakenjs/lusca) while the API routes are using [JSON Web Token](https://github.com/auth0/express-jwt).
 * For Strategies Authentication, this repo contains the use of the [Passport.js](https://github.com/jaredhanson/passport). Passport.js is compatible with Express.js and is authentication middleware for Node.js.
+* For Logging, this repo uses custom Log class built in middlewares folder, and it creates logs file by date & removes the log files after 'X' days (You can define that 'X' in .env file).
+* To Log, use `Log.info('You message should go here!')`
 * For views, this repo contains the use of [PUG](https://github.com/pugjs/pug) template engine.
 
 # Contents

@@ -7,9 +7,9 @@
 import * as cors from 'cors';
 import * as flash from 'express-flash';
 import * as compress from 'compression';
+import * as connect from 'connect-mongo';
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
-import * as connect from 'connect-mongo';
 import * as expressValidator from 'express-validator';
 
 import Locals from '../providers/Locals';

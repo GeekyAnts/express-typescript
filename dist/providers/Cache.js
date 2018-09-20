@@ -11,7 +11,7 @@ class Cache {
      * Checks for the available cached data
      * or adds if not available
      */
-    static cache(_duration) {
+    cache(_duration) {
         return (req, res, next) => {
             let key = '__express__' + req.originalUrl || req.url;
             let cachedBody = mcache.get(key);
@@ -29,5 +29,5 @@ class Cache {
         };
     }
 }
-exports.default = Cache;
+exports.default = new Cache;
 //# sourceMappingURL=Cache.js.map

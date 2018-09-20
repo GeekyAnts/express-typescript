@@ -11,7 +11,7 @@ class Cache {
 	 * Checks for the available cached data
 	 * or adds if not available
 	 */
-	public static cache(_duration: number): any {
+	public cache(_duration: number): any {
 		return (req, res, next) => {
 			let key = '__express__' + req.originalUrl || req.url;
 
@@ -30,4 +30,4 @@ class Cache {
 	}
 }
 
-export default Cache;
+export default new Cache;

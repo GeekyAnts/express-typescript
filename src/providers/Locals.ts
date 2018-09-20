@@ -29,6 +29,8 @@ class Locals {
 		const isCORSEnabled = process.env.CORS_ENABLED || true;
 		const jwtExpiresIn = process.env.JWT_EXPIRES_IN || 3;
 		const apiPrefix = process.env.API_PREFIX || 'api';
+		const port = process.env.PORT || 4040;
+		const logDays = process.env.LOG_DAYS || 10;
 
 		return {
 			appSecret,
@@ -39,10 +41,12 @@ class Locals {
 			isCORSEnabled,
 			jwtExpiresIn,
 			keywords,
+			logDays,
 			maxUploadLimit,
 			maxParameterLimit,
 			mongooseUrl,
 			name,
+			port,
 			url
 		};
 	}

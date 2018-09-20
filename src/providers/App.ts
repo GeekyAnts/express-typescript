@@ -4,35 +4,48 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
-import * as os from 'os';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
-import * as cluster from 'cluster';
 
-import express from './Express';
+import Express from './Express';
 import { Database } from './Database';
+import Jobs from '../jobs';
+
+import Log from '../middlewares/Log';
 
 class App {
+	// Clear the console
+	public clearConsole (): void {
+		process.stdout.write('\x1B[2J\x1B[0f');
+	}
+
 	// Loads your dotenv file
-	public static loadConfiguration (): void {
+	public loadConfiguration (): void {
+		Log.info('Configuration :: Booting @ Master...');
+
 		dotenv.config({ path: path.join(__dirname, '../../.env') });
 	}
 
-	// Cluster's your server
-	public static loadServer (): void {
-		if (cluster.isMaster) {
-			for (let i = 0; i < os.cpus().length; i += 1) {
-				cluster.fork();
-			}
-		} else {
-			express.init();
-		}
+	// Loads your Server
+	public loadServer (): void {
+		Log.info('Server :: Booting @ Master...');
+
+		Express.init();
 	}
 
 	// Loads the Database Pool
-	public static loadDatabase (): void {
+	public loadDatabase (): void {
+		Log.info('Database :: Booting @ Master...');
+
 		Database.init();
+	}
+
+	// Loads the Worker Cluster
+	public loadWorker (): void {
+		Log.info('Worker :: Booting @ Master...');
+
+		setInterval(() => Jobs.init(), 1000);
 	}
 }
 
-export default App;
+export default new App;

@@ -15,7 +15,7 @@ class Express {
 	/**
 	 * Create the express object
 	 */
-	public express;
+	public express: any;
 
 	/**
 	 * Initializes the express server
@@ -51,6 +51,8 @@ class Express {
 	 * Starts the express server
 	 */
 	public init (): any {
+		const port: number = Locals.config().port;
+
 		// Registering Exception / Error Handlers
 		this.express.use(ExceptionHandler.logErrors);
 		this.express.use(ExceptionHandler.clientErrorHandler);
@@ -58,12 +60,12 @@ class Express {
 		this.express = ExceptionHandler.notFoundHandler(this.express);
 
 		// Start the server on the specified port
-		this.express.listen(process.env.PORT, _error => {
+		this.express.listen(port, _error => {
 			if (_error) {
 				return console.log('Error: ', _error);
 			}
 
-			return console.log('\x1b[36m%s\x1b[0m', `Server is running on port '${process.env.PORT}'`);
+			return console.log('\x1b[33m%s\x1b[0m', `Server :: Running @ 'http://localhost:${port}'`);
 		});
 	}
 }

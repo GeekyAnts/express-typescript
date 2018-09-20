@@ -54,18 +54,13 @@
 		- google
 		- twitter
 
-# Pending:
-
-- services
-	- auth strategies
-		- github
-		- facebook
-		- instagram
-
 - apis
 	- with jwt
 	- with ignore apis from csrf token
 
-- jobs
+- logs
 
-- cheatsheets & documentation
+# Pending:
+
+- workers
+- db column type change management
