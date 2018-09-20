@@ -65,6 +65,7 @@ A boilerplate for [Node.js](https://nodejs.org/en) App.
 │   │   ├── CsrfToken.ts
 │   │   ├── Http.ts
 │   │   ├── Kernel.ts
+│   │   ├── Log.ts
 │   │   ├── Statistics.ts
 │   │   └── View.ts
 │   ├── models
