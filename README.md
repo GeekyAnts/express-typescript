@@ -21,7 +21,7 @@ A boilerplate for [Node.js](https://nodejs.org/en) App.
 * [List of Routes](#list-of-routes)
 * [Screens](#screens)
 
-# Global Requisite
+# Global Requisites
 
 * node (>= 10.5.0)
 * tsc (>= 3.0.1)
@@ -133,7 +133,7 @@ vim .env;
 npm run dev;
 ```
 
-# List of Routes:
+# List of Routes
 
 ```sh
 # Web Routes:
