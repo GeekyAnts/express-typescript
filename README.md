@@ -152,6 +152,7 @@ npm run dev;
   GET    | /auth/google/callback
   GET    | /auth/twitter
   GET    | /auth/twitter/callback
+  GET    | /status-monitor
 +--------+-------------------------+
 
 # API Routes:
