@@ -5,6 +5,7 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+const Log_1 = require("../middlewares/Log");
 const Locals_1 = require("../providers/Locals");
 class Handler {
     /**
@@ -13,6 +14,8 @@ class Handler {
     static notFoundHandler(_express) {
         const apiPrefix = Locals_1.default.config().apiPrefix;
         _express.use('*', (req, res) => {
+            const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+            Log_1.default.error(`Path '${req.originalUrl}' not found [IP: '${ip}']!`);
             if (req.xhr || req.originalUrl.includes(`/${apiPrefix}/`)) {
                 return res.json({
                     error: 'Page Not Found'
@@ -32,6 +35,7 @@ class Handler {
      * Handles your api/web routes errors/exception
      */
     static clientErrorHandler(err, req, res, next) {
+        Log_1.default.error(err.stack);
         if (req.xhr) {
             return res.status(500).send({ error: 'Something went wrong!' });
         }
@@ -43,6 +47,7 @@ class Handler {
      * Show undermaintenance page incase of errors
      */
     static errorHandler(err, req, res, next) {
+        Log_1.default.error(err.stack);
         res.status(500);
         const apiPrefix = Locals_1.default.config().apiPrefix;
         if (req.originalUrl.includes(`/${apiPrefix}/`)) {
@@ -66,9 +71,7 @@ class Handler {
      * tools right here ie. before "next(err)"!
      */
     static logErrors(err, req, res, next) {
-        console.log(err);
-        // console.log(err.message);
-        // console.log(err.stack);
+        Log_1.default.error(err.stack);
         return next(err);
     }
 }

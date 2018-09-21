@@ -4,6 +4,7 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
+import Log from '../middlewares/Log';
 import Locals from '../providers/Locals';
 
 class Handler {
@@ -14,6 +15,9 @@ class Handler {
 		const apiPrefix = Locals.config().apiPrefix;
 
 		_express.use('*', (req, res) => {
+			const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+
+			Log.error(`Path '${req.originalUrl}' not found [IP: '${ip}']!`);
 			if (req.xhr || req.originalUrl.includes(`/${apiPrefix}/`)) {
 				return res.json({
 					error: 'Page Not Found'
@@ -34,6 +38,8 @@ class Handler {
 	 * Handles your api/web routes errors/exception
 	 */
 	public static clientErrorHandler(err, req, res, next): any {
+		Log.error(err.stack);
+
 		if (req.xhr) {
 			return res.status(500).send({error: 'Something went wrong!'});
 		} else {
@@ -45,6 +51,7 @@ class Handler {
 	 * Show undermaintenance page incase of errors
 	 */
 	public static errorHandler(err, req, res, next): any {
+		Log.error(err.stack);
 		res.status(500);
 
 		const apiPrefix = Locals.config().apiPrefix;
@@ -73,9 +80,8 @@ class Handler {
 	 * tools right here ie. before "next(err)"!
 	 */
 	public static logErrors(err, req, res, next): any {
-		console.log(err);
-		// console.log(err.message);
-		// console.log(err.stack);
+		Log.error(err.stack);
+
 		return next(err);
 	}
 }
