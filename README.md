@@ -15,7 +15,7 @@ A boilerplate for [Node.js](https://nodejs.org/en) App.
 
 # Contents
 
-* [Global Requisites](#global-requisite)
+* [Global Requisites](#global-requisites)
 * [App Structure](#app-structure)
 * [Install, Configure & Run](#install-configure--run)
 * [List of Routes](#list-of-routes)
