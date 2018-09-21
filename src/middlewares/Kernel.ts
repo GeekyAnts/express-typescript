@@ -11,6 +11,8 @@ import Http from './Http';
 import Views from './Views';
 import Statics from './Statics';
 import CsrfToken from './CsrfToken';
+import StatusMonitor from './StatusMonitor';
+
 import Locals from '../providers/Locals';
 
 class Kernel {
@@ -32,6 +34,9 @@ class Kernel {
 
 		// Mount statics middleware
 		_express = Statics.mount(_express);
+
+		// Mount status monitor middleware
+		_express = StatusMonitor.mount(_express);
 
 		return _express;
 	}

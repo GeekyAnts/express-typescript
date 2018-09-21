@@ -7,9 +7,11 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const lusca = require("lusca");
+const Log_1 = require("./Log");
 const Locals_1 = require("../providers/Locals");
 class CsrfToken {
     static mount(_express) {
+        Log_1.default.info('Booting the \'CsrfToken\' middleware...');
         _express.set('trust proxy', 1);
         // Interpolate the user variable into your pug files
         _express.use((req, res, next) => {

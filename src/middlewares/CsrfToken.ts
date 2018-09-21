@@ -7,10 +7,14 @@
 
 import { Application } from 'express';
 import * as lusca from 'lusca';
+
+import Log from './Log';
 import Locals from '../providers/Locals';
 
 class CsrfToken {
 	public static mount(_express: any): Application {
+		Log.info('Booting the \'CsrfToken\' middleware...');
+
 		_express.set('trust proxy', 1);
 
 		// Interpolate the user variable into your pug files

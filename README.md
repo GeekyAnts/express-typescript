@@ -66,7 +66,8 @@ A boilerplate for [Node.js](https://nodejs.org/en) App.
 │   │   ├── Http.ts
 │   │   ├── Kernel.ts
 │   │   ├── Log.ts
-│   │   ├── Statistics.ts
+│   │   ├── Statics.ts
+│   │   ├── StatusMonitor.ts
 │   │   └── View.ts
 │   ├── models
 │   │   └── User.ts

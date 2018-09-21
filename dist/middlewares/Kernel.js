@@ -10,6 +10,7 @@ const Http_1 = require("./Http");
 const Views_1 = require("./Views");
 const Statics_1 = require("./Statics");
 const CsrfToken_1 = require("./CsrfToken");
+const StatusMonitor_1 = require("./StatusMonitor");
 const Locals_1 = require("../providers/Locals");
 class Kernel {
     static init(_express) {
@@ -26,6 +27,8 @@ class Kernel {
         _express = Views_1.default.mount(_express);
         // Mount statics middleware
         _express = Statics_1.default.mount(_express);
+        // Mount status monitor middleware
+        _express = StatusMonitor_1.default.mount(_express);
         return _express;
     }
 }

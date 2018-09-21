@@ -12,8 +12,8 @@ import * as connect from 'connect-mongo';
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as expressValidator from 'express-validator';
-import * as expressStatusMonitor from 'express-status-monitor';
 
+import Log from './Log';
 import Locals from '../providers/Locals';
 import Passport from '../providers/Passport';
 
@@ -21,6 +21,8 @@ const MongoStore = connect(session);
 
 class Http {
 	public static mount(_express: Application): Application {
+		Log.info('Booting the \'HTTP\' middleware...');
+
 		// Enables the request body parser
 		_express.use(bodyParser.json({
 			limit: Locals.config().maxUploadLimit
@@ -70,9 +72,6 @@ class Http {
 
 		// Loads the passport configuration
 		_express = Passport.mountPackage(_express);
-
-		// Loads the express status monitor middleware
-		_express.use(expressStatusMonitor());
 
 		return _express;
 	}
