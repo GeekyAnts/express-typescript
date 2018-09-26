@@ -8,9 +8,14 @@ import * as os from 'os';
 import * as cluster from 'cluster';
 
 import App from './providers/App';
-import Log from './middlewares/Log';
+import NativeEvent from './exception/NativeEvent';
 
 if (cluster.isMaster) {
+	/**
+	 * Catches the process events
+	 */
+	NativeEvent.process();
+
 	/**
 	 * Clear the console before the app runs
 	 */
@@ -31,13 +36,10 @@ if (cluster.isMaster) {
 	 */
 	CPUS.forEach(() => cluster.fork());
 
-	cluster.on('listening', (worker) => Log.info(`Server :: Cluster with ProcessID '${worker.process.pid}' Connected`));
-	cluster.on('disconnect', (worker) => Log.info(`Server :: Cluster with ProcessID '${worker.process.pid}' Disconnected`));
-	cluster.on('exit', (worker) => {
-		Log.info(`Server :: Cluster with ProcessID '${worker.process.pid}' is Dead`);
-		// Ensuring a new cluster will start if an old one dies
-		cluster.fork();
-	});
+	/**
+	 * Catches the cluster events
+	 */
+	NativeEvent.cluster(cluster);
 
 	/**
 	 * Run the Worker every minute

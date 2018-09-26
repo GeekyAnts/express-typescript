@@ -34,18 +34,18 @@ exports.UserSchema = new Database_1.default.Schema({
 exports.UserSchema.pre('save', function (_next) {
     const user = this;
     if (!user.isModified('password')) {
-        _next();
+        return _next();
     }
     bcrypt.genSalt(10, (_err, _salt) => {
         if (_err) {
-            _next(_err);
+            return _next(_err);
         }
         bcrypt.hash(user.password, _salt, null, (_err, _hash) => {
             if (_err) {
-                _next(_err);
+                return _next(_err);
             }
             user.password = _hash;
-            _next();
+            return _next();
         });
     });
 });

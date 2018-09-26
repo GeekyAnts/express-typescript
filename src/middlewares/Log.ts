@@ -34,6 +34,9 @@ class Log {
 
 	// Adds ERROR prefix string to the log string
 	public error (_string: string): any {
+		// Line break and show the first line
+		console.log('\x1b[31m%s\x1b[0m', '[ERROR] :: ' + _string.split(/r?\n/)[0]);
+
 		return this.addLog('ERROR', _string);
 	}
 

@@ -10,7 +10,9 @@ import * as passport from 'passport';
 import LocalStrategy from '../services/strategies/Local';
 import GoogleStrategy from '../services/strategies/Google';
 import TwitterStrategy from '../services/strategies/Twitter';
+
 import User from '../models/User';
+import Log from '../middlewares/Log';
 
 class Passport {
 	public mountPackage (_express: Application): Application {
@@ -33,9 +35,13 @@ class Passport {
 	}
 
 	public mountLocalStrategies(): void {
-		LocalStrategy.init(passport);
-		GoogleStrategy.init(passport);
-		TwitterStrategy.init(passport);
+		try {
+			LocalStrategy.init(passport);
+			GoogleStrategy.init(passport);
+			TwitterStrategy.init(passport);
+		} catch (_err) {
+			Log.error(_err.stack);
+		}
 	}
 
 	public isAuthenticated (req, res, next): any {
