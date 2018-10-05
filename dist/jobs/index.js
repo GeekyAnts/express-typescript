@@ -9,14 +9,16 @@ class Job {
     constructor() {
         //
     }
-    dispatch() {
-        //
+    dispatch(_class, ..._args) {
+        let job = [];
+        job['class'] = _class;
+        job['args'] = _args;
     }
     handle() {
         //
     }
-    init() {
-        console.log('This process will be check every second!');
+    init(_jobName = 'default') {
+        console.log('This process will be check every second!', _jobName);
     }
 }
 exports.default = new Job;

@@ -24,6 +24,7 @@
     "jquery": "^3.3.1",
     "jquery.easing": "^1.4.1",
     "jsonwebtoken": "^8.3.0",
+    "kue": "^0.11.6",
     "lodash": "^4.17.11",
     "lusca": "^1.6.1",
     "magnific-popup": "^1.1.0",

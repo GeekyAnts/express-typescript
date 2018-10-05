@@ -35,6 +35,10 @@ if (cluster.isMaster) {
      */
     NativeEvent_1.default.cluster(cluster);
     /**
+     * Loads the Queue Monitor iff enabled
+     */
+    App_1.default.loadQueue();
+    /**
      * Run the Worker every minute
      * Note: we normally start worker after
      * the entire app is loaded
