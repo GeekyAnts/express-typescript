@@ -13,6 +13,7 @@ A boilerplate for [Node.js](https://nodejs.org/en) App.
 * For Exception handling, this repo contains two classes ie. `Handler` & `NativeEvent` 
 * To Log, use `Log.info('Your message should go here!')`. Other options for logging are `Log.warn`, `Log.error` & `Log.custom`.
 * For views, this repo contains the use of [PUG](https://github.com/pugjs/pug) template engine.
+* For background queues, this repo contains the use of [Kue](https://github.com/Automattic/kue). For more detail on the same, please review the [Queue](https://github.com/faizahmedfarooqui/nodets/blob/master/src/providers/Queue.ts) class
 
 # Contents
 
@@ -80,6 +81,7 @@ A boilerplate for [Node.js](https://nodejs.org/en) App.
 │   │   ├── Express.ts
 │   │   ├── Locals.ts
 │   │   ├── Passport.ts
+│   │   ├── Queue.ts
 │   │   └── Routes.ts
 │   ├── routes
 │   │   ├── Api.ts
