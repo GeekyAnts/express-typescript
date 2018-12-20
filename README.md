@@ -29,6 +29,7 @@ A boilerplate for [Node.js](https://nodejs.org/en) App.
 * tsc (>= 3.0.1)
 * typescript (>= 3.0.1)
 * mongoose (>= 3.6.2)
+* redis
 
 # App Structure
 
