@@ -15,7 +15,7 @@ export class Database {
 	// Initialize your database pool
 	public static init (): any {
 		const dsn = Locals.config().mongooseUrl;
-		const options = { useNewUrlParser: true };
+		const options = { useNewUrlParser: true, useUnifiedTopology: true };
 
 		(<any>mongoose).Promise = bluebird;
 

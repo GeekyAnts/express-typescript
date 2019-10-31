@@ -33,7 +33,7 @@
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-github": "^1.1.0",
-    "passport-google-oauth": "^1.0.0",
+    "passport-google-oauth20": "^2.0.0",
     "passport-instagram": "^1.0.0",
     "passport-linkedin-oauth2": "^1.5.0",
     "passport-local": "^1.0.0",

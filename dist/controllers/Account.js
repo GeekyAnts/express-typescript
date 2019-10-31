@@ -7,7 +7,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class Account {
     static index(req, res) {
-        res.render('pages/dashboard', {
+        return res.render('pages/dashboard', {
             title: 'Home'
         });
     }

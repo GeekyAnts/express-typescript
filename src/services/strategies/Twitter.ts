@@ -6,13 +6,14 @@
 
 import { Strategy } from 'passport-twitter';
 import User from '../../models/User';
+import Locals from '../../providers/Locals';
 
 class Twitter {
 	public static init (_passport: any): any {
 		_passport.use(new Strategy({
 			consumerKey: process.env.TWITTER_KEY,
 			consumerSecret: process.env.TWITTER_SECRET,
-			callbackURL: 'http://localhost:4040/auth/twitter/callback',
+			callbackURL: `${Locals.config().url}/auth/twitter/callback`,
 			passReqToCallback: true
 		}, (req, accessToken, tokenSecret, profile, done) => {
 			if (req.user) {

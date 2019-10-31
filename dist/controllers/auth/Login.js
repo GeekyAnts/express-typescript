@@ -9,7 +9,7 @@ const passport = require("passport");
 const Log_1 = require("../../middlewares/Log");
 class Login {
     static show(req, res) {
-        res.render('pages/login', {
+        return res.render('pages/login', {
             title: 'LogIn'
         });
     }

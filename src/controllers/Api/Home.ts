@@ -8,7 +8,7 @@ import Locals from '../../providers/Locals';
 
 class Home {
 	public static index(req, res, next): any {
-		res.json({
+		return res.json({
 			message: Locals.config().name
 		});
 	}

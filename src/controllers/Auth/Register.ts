@@ -9,7 +9,7 @@ import { IRequest, IResponse, INext } from '../../interfaces/vendors';
 
 class Register {
 	public static show (req: IRequest, res: IResponse): any {
-		res.render('pages/signup', {
+		return res.render('pages/signup', {
 			title: 'SignUp'
 		});
 	}

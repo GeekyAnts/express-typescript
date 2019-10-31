@@ -4,15 +4,16 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
-import { OAuth2Strategy as Strategy } from 'passport-google-oauth';
+import { Strategy } from 'passport-google-oauth20';
 import User from '../../models/User';
+import Locals from '../../providers/Locals';
 
 class Google {
 	public static init (_passport: any): any {
 		_passport.use(new Strategy({
 			clientID: process.env.GOOGLE_ID,
 			clientSecret: process.env.GOOGLE_SECRET,
-			callbackURL: 'http://localhost:4040/auth/google/callback',
+			callbackURL: `${Locals.config().url}/auth/google/callback`,
 			passReqToCallback: true
 		}, (req, accessToken, refreshToken, profile, done) => {
 			if (req.user) {
@@ -34,7 +35,9 @@ class Google {
 							user.tokens.push({ kind: 'google', accessToken });
 							user.fullname = user.fullname || profile.displayName;
 							user.gender = user.gender || profile._json.gender;
-							user.picture = user.picture || profile._json.image.url;
+							if (profile.photos) {
+								user.picture = user.picture || profile.photos[0].value;
+							}
 							user.save((err) => {
 								req.flash('info', { msg: 'Google account has been linked.' });
 								return done(err, user);
@@ -68,7 +71,10 @@ class Google {
 							user.tokens.push({ kind: 'google', accessToken });
 							user.fullname = user.fullname || profile.displayName;
 							user.gender = user.gender || profile._json.gender;
-							user.picture = user.picture || profile._json.image.url;
+							if (profile.photos) {
+								user.picture = user.picture || profile.photos[0].value;
+							}
+							
 							user.save((err) => {
 								return done(err, user);
 							});

@@ -15,7 +15,7 @@ class Logout {
 			}
 
 			req.user = null;
-			res.redirect('/');
+			return res.redirect('/');
 		});
 	}
 }

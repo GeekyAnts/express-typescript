@@ -21,7 +21,7 @@ nav#mainNav.navbar.navbar-expand-lg.bg-secondary.fixed-top.text-uppercase
         else
           .dropdown.text-white
             li#dropdownMenu.nav-item.mx-0.mg-lg-1.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
-              img.img-thumbnail.rounded-circle(src=user.picture)
+              img.img-thumbnail.rounded-circle.image-resizer(src=user.picture)
             .dropdown-menu.dropdown-menu-right(aria-labelledby="dropdownMenu")
               a.dropdown-item.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger.disabled(href='#') #{user.email}
               .dropdown-divider

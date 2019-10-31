@@ -13,7 +13,7 @@ class Database {
     // Initialize your database pool
     static init() {
         const dsn = Locals_1.default.config().mongooseUrl;
-        const options = { useNewUrlParser: true };
+        const options = { useNewUrlParser: true, useUnifiedTopology: true };
         mongoose.Promise = bluebird;
         mongoose.connect(dsn, options, (error) => {
             // handle the error case

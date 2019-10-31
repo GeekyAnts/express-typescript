@@ -8,7 +8,7 @@ import { IRequest, IResponse } from '../interfaces/vendors';
 
 class Account {
 	public static index (req: IRequest, res: IResponse): void {
-		res.render('pages/dashboard', {
+		return res.render('pages/dashboard', {
 			title: 'Home'
 		});
 	}

@@ -7,12 +7,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const passport_twitter_1 = require("passport-twitter");
 const User_1 = require("../../models/User");
+const Locals_1 = require("../../providers/Locals");
 class Twitter {
     static init(_passport) {
         _passport.use(new passport_twitter_1.Strategy({
             consumerKey: process.env.TWITTER_KEY,
             consumerSecret: process.env.TWITTER_SECRET,
-            callbackURL: 'http://localhost:4040/auth/twitter/callback',
+            callbackURL: `${Locals_1.default.config().url}/auth/twitter/callback`,
             passReqToCallback: true
         }, (req, accessToken, tokenSecret, profile, done) => {
             if (req.user) {

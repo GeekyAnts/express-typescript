@@ -41,16 +41,16 @@ class Passport {
             return next();
         }
         req.flash('errors', { msg: 'Please Log-In to access any further!' });
-        res.redirect('/login');
+        return res.redirect('/login');
     }
     isAuthorized(req, res, next) {
         const provider = req.path.split('/').slice(-1)[0];
         const token = req.user.tokens.find(token => token.kind === provider);
         if (token) {
-            next();
+            return next();
         }
         else {
-            res.redirect(`/auth/${provider}`);
+            return res.redirect(`/auth/${provider}`);
         }
     }
 }

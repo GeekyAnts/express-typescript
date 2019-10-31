@@ -5,14 +5,15 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-const passport_google_oauth_1 = require("passport-google-oauth");
+const passport_google_oauth20_1 = require("passport-google-oauth20");
 const User_1 = require("../../models/User");
+const Locals_1 = require("../../providers/Locals");
 class Google {
     static init(_passport) {
-        _passport.use(new passport_google_oauth_1.OAuth2Strategy({
+        _passport.use(new passport_google_oauth20_1.Strategy({
             clientID: process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_SECRET,
-            callbackURL: 'http://localhost:4040/auth/google/callback',
+            callbackURL: `${Locals_1.default.config().url}/auth/google/callback`,
             passReqToCallback: true
         }, (req, accessToken, refreshToken, profile, done) => {
             if (req.user) {
@@ -33,7 +34,9 @@ class Google {
                             user.tokens.push({ kind: 'google', accessToken });
                             user.fullname = user.fullname || profile.displayName;
                             user.gender = user.gender || profile._json.gender;
-                            user.picture = user.picture || profile._json.image.url;
+                            if (profile.photos) {
+                                user.picture = user.picture || profile.photos[0].value;
+                            }
                             user.save((err) => {
                                 req.flash('info', { msg: 'Google account has been linked.' });
                                 return done(err, user);
@@ -65,7 +68,9 @@ class Google {
                             user.tokens.push({ kind: 'google', accessToken });
                             user.fullname = user.fullname || profile.displayName;
                             user.gender = user.gender || profile._json.gender;
-                            user.picture = user.picture || profile._json.image.url;
+                            if (profile.photos) {
+                                user.picture = user.picture || profile.photos[0].value;
+                            }
                             user.save((err) => {
                                 return done(err, user);
                             });

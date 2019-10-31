@@ -13,7 +13,7 @@ import Log from '../../middlewares/Log';
 
 class Login {
 	public static show (req: IRequest, res: IResponse): any {
-		res.render('pages/login', {
+		return res.render('pages/login', {
 			title: 'LogIn'
 		});
 	}

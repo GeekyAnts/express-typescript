@@ -8,7 +8,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const User_1 = require("../../models/User");
 class Register {
     static show(req, res) {
-        res.render('pages/signup', {
+        return res.render('pages/signup', {
             title: 'SignUp'
         });
     }

@@ -13,7 +13,7 @@ class Logout {
                 console.log('Error : Failed to destroy the session during logout.', err);
             }
             req.user = null;
-            res.redirect('/');
+            return res.redirect('/');
         });
     }
 }

@@ -8,7 +8,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Locals_1 = require("../../providers/Locals");
 class Home {
     static index(req, res, next) {
-        res.json({
+        return res.json({
             message: Locals_1.default.config().name
         });
     }
