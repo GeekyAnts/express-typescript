@@ -15,6 +15,7 @@ class Database {
         const dsn = Locals_1.default.config().mongooseUrl;
         const options = { useNewUrlParser: true, useUnifiedTopology: true };
         mongoose.Promise = bluebird;
+        mongoose.set('useCreateIndex', true);
         mongoose.connect(dsn, options, (error) => {
             // handle the error case
             if (error) {

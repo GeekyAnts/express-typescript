@@ -16,21 +16,21 @@ class Log {
     }
     // Adds INFO prefix string to the log string
     info(_string) {
-        return this.addLog('INFO', _string);
+        this.addLog('INFO', _string);
     }
     // Adds WARN prefix string to the log string
     warn(_string) {
-        return this.addLog('WARN', _string);
+        this.addLog('WARN', _string);
     }
     // Adds ERROR prefix string to the log string
     error(_string) {
         // Line break and show the first line
         console.log('\x1b[31m%s\x1b[0m', '[ERROR] :: ' + _string.split(/r?\n/)[0]);
-        return this.addLog('ERROR', _string);
+        this.addLog('ERROR', _string);
     }
     // Adds the custom prefix string to the log string
     custom(_filename, _string) {
-        return this.addLog(_filename, _string);
+        this.addLog(_filename, _string);
     }
     /**
      * Creates the file if does not exist, and

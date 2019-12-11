@@ -53,16 +53,16 @@
     "@types/mocha": "^5.2.5",
     "@types/mongodb": "^3.1.4",
     "@types/mongoose": "^5.2.6",
-    "@types/node": "^10.7.1",
+    "@types/node": "^12.12.17",
     "awesome-typescript-loader": "^5.2.0",
     "mocha": "^5.2.0",
     "typescript": "^3.0.1",
     "typescript-eslint-parser": "^18.0.0"
   },
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch & NODE_ENV=development nodemon dist",
-    "test": "tsc && ./node_modules/.bin/mocha dist/**/*.spec.js",
+    "build": "tsc --project './tsconfig.json'",
+    "dev": "tsc --project './tsconfig.json' --watch & NODE_ENV=development nodemon dist",
+    "test": "tsc --project './tsconfig.json' && ./node_modules/.bin/mocha dist/**/*.spec.js",
     "lint": "./node_modules/.bin/tslint -c tslint.json 'src/**/**.ts'"
   },
   "author": "Faiz A. Farooqui <faiz@geekyants.com>",

@@ -23,33 +23,33 @@ class Log {
 	}
 
 	// Adds INFO prefix string to the log string
-	public info (_string: string): any {
-		return this.addLog('INFO', _string);
+	public info (_string: string): void {
+		this.addLog('INFO', _string);
 	}
 
 	// Adds WARN prefix string to the log string
-	public warn (_string: string): any {
-		return this.addLog('WARN', _string);
+	public warn (_string: string): void {
+		this.addLog('WARN', _string);
 	}
 
 	// Adds ERROR prefix string to the log string
-	public error (_string: string): any {
+	public error (_string: string): void {
 		// Line break and show the first line
 		console.log('\x1b[31m%s\x1b[0m', '[ERROR] :: ' + _string.split(/r?\n/)[0]);
 
-		return this.addLog('ERROR', _string);
+		this.addLog('ERROR', _string);
 	}
 
 	// Adds the custom prefix string to the log string
-	public custom (_filename: string, _string: string): any {
-		return this.addLog(_filename, _string);
+	public custom (_filename: string, _string: string): void {
+		this.addLog(_filename, _string);
 	}
 
 	/**
 	 * Creates the file if does not exist, and
 	 * append the log kind & string into the file.
 	 */
-	private addLog (_kind: string, _string: string): any {
+	private addLog (_kind: string, _string: string): void {
 		const _that = this;
 		_kind = _kind.toUpperCase();
 
