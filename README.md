@@ -124,7 +124,7 @@ Below mentioned are the steps to install, configure & run in your platform/distr
 
 ```bash
 # Clone the repo.
-git clone https://github.com/faizahmedfarooqui/nodets.git;
+git clone https://github.com/GeekyAnts/express-typescript.git;
 
 # Goto the cloned project folder.
 cd nodets;
