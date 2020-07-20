@@ -205,9 +205,9 @@ npm run dev;
 ### Page Not Found Page
 
 ![Page Not Found Page](/screens/PageNotFound.png)
-> Note: In case, the requested URI does not exist, app shows this page
+> Note: In case the requested URI does not exist, app shows this page
 
 ### Under Maintenance Page
 
 ![Under Maintenance Page](/screens/UnderMaintenance.png)
-> Note: In case, a error is generated so instead of plain error we show under maintenance page
+> Note: In case an error is generated, so instead of plain errors we can show the under maintenance page.
