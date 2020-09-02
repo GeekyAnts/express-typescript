@@ -5,8 +5,6 @@ Hey There! 🙌
 
 <img alt="express-typescript" src="https://github.com/GeekyAnts/express-typescript/blob/master/public/images/express-typescript.png" height="50%" width="60%">
 
-# Description
-
 A boilerplate for [Node.js](https://nodejs.org/en) App.
 
 * This boilerplate is built using [Express.js](https://expressjs.com/) web framework, and have used [Typescript Lang](https://www.typescriptlang.org/) for writing the app's logic. 
