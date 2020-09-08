@@ -7,18 +7,19 @@ Hey There! 🙌
 
 A boilerplate for [Node.js](https://nodejs.org/en) App.
 
-* This boilerplate is built using [Express.js](https://expressjs.com/) web framework, and have used [Typescript Lang](https://www.typescriptlang.org/) for writing the app's logic. 
-* It uses the Node.js's [Cluster API](https://nodejs.org/api/cluster.html), this helps us to take advantage of multi-core systems & to handle the load.
-* For storing configuration into the `process.env`, [DOTENV](https://github.com/motdotla/dotenv) for Node.js is used.
-* For Database, this repo contains the use of [Mongoose](https://mongoosejs.com/) (ie. [MongoDB](https://www.mongodb.com/) object modeling for [Node.js](https://nodejs.org/en/)).
-* For Cache, this repo contains the use of [memory-cache](https://github.com/ptarjan/node-cache#readme) (ie. A simple in-memory cache for node.js).
-* For Routing, this repo contains the use of [express-router](https://expressjs.com/en/guide/routing.html) & have distributed Routes into two files ie. Web Routes & API Routes. The web routes are using [CSRF Token](https://github.com/krakenjs/lusca) while the API routes are using [JSON Web Token](https://github.com/auth0/express-jwt).
-* For Strategies Authentication, this repo contains the use of the [Passport.js](https://github.com/jaredhanson/passport). Passport.js is compatible with Express.js and is authentication middleware for Node.js.
-* For Logging, this repo uses custom Log class built in middlewares folder, and it creates logs file by date & removes the log files after 'X' days (You can define that 'X' in .env file).
-* For Exception handling, this repo contains two classes ie. `Handler` & `NativeEvent` 
-* To Log, use `Log.info('Your message should go here!')`. Other options for logging are `Log.warn`, `Log.error` & `Log.custom`.
-* For views, this repo contains the use of [PUG](https://github.com/pugjs/pug) template engine.
-* For background queues, this repo contains the use of [Kue](https://github.com/Automattic/kue). For more detail on the same, please review the [Queue](https://github.com/faizahmedfarooqui/nodets/blob/master/src/providers/Queue.ts) class
+* This boilerplate is built using [Express.js](https://expressjs.com/) web framework, and is using [Typescript Lang](https://www.typescriptlang.org/) for writing the app's logic. 
+* It uses Node's [Cluster API](https://nodejs.org/api/cluster.html), this helps us to take advantage of multi-core systems & to handle the load.
+* For storing custom constant configurations within the `process.env` - [DotEnv](https://github.com/motdotla/dotenv) package is used.
+* For Database - Repo contains the use of [Mongoose](https://mongoosejs.com/) (ie. [MongoDB](https://www.mongodb.com/) object modeling for [Node.js](https://nodejs.org/en/)).
+* For Cache - Repo contains the use of [memory-cache](https://github.com/ptarjan/node-cache#readme) (ie. A simple in-memory cache for node.js).
+* For Routing - Repo contains the use of [express-router](https://expressjs.com/en/guide/routing.html) & have distributed Routes into two files ie. Web Routes & API Routes. 
+* For Route Auth Middleware - Web routes are configured with [CSRF Token](https://github.com/krakenjs/lusca) while the API routes are configured with [JSON Web Token](https://github.com/auth0/express-jwt).
+* For Strategies Auth - Repo contains the use of the [Passport.js](https://github.com/jaredhanson/passport). Passport.js is compatible with Express.js and is authentication middleware for Node.js.
+* For Logging - Repo uses custom Log class built in middlewares folder, and it creates logs file by date & removes the log files after 'X' days (You can define that 'X' in the `.env` file).
+* For Handling Exception - Repo contains two classes ie. `Handler` & `NativeEvent`.
+* To Log - use `Log.info('Your message should go here!')`. Other options for logging are `Log.warn`, `Log.error` & `Log.custom`.
+* For views - Repo contains the use of [PUG](https://github.com/pugjs/pug) template engine.
+* For background queues - Repo contains the use of [Kue](https://github.com/Automattic/kue). For more details, please review the [Queue](https://github.com/faizahmedfarooqui/nodets/blob/master/src/providers/Queue.ts) class.
 
 # Contents
 
