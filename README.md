@@ -3,7 +3,7 @@ Hey There! 🙌
 🤾 that ⭐️ button if you like this boilerplate. 
 ```
 
-<img alt="express-typescript" src="https://github.com/GeekyAnts/express-typescript/blob/master/public/images/express-typescript.png" height="50%" width="60%">
+<img alt="express-typescript" src="/public/images/express-typescript.png"
 
 A boilerplate for [Node.js](https://nodejs.org/en) App.
 
