@@ -6,3 +6,4 @@ public/static
 *.marko.js
 .env.example
 .logs/*.log
+dist/

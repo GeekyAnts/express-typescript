@@ -20,9 +20,9 @@ class App {
 	public clearConsole (): void {
 		process.stdout.write('\x1B[2J\x1B[0f');
 
-		// Queue.dispatch('checkout', {foo: 'bar', fizz: 'buzz'}, function (data) {
-		// 	console.log('>> here is the data', data);
-		// });
+		Queue.dispatch('checkout', {foo: 'bar', fizz: 'buzz'}, function (data) {
+			console.log('>> here is the data', data);
+		});
 	}
 
 	// Loads your dotenv file

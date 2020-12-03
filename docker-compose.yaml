@@ -1,0 +1,33 @@
+version: '3'
+services:
+    express-typescript:
+        build:
+            context: .
+            dockerfile: local.Dockerfile
+        container_name: 'app-express-typescript'
+        volumes:
+            - .:/usr/src/app/
+        working_dir: /usr/src/app
+        environment:
+            - REDIS_QUEUE_HOST=redis
+            - MONGOOSE_URL=mongodb://mongo:27017/typescript_mongoose
+            - GOOGLE_ID=
+            - GOOGLE_SECRET=
+            - TWITTER_KEY=
+            - TWITTER_SECRET=
+        command: sh -c "npm install && npm run dev"
+        ports:
+            - 4040:4040
+            - 5550:5550
+    redis:
+        image: "redis"
+        ports:
+        - "6379:6379"
+        expose:
+        - 6379
+    mongo:
+        image: "mongo"
+        ports:
+        - "27017:27017"
+        expose:
+        - 27017
