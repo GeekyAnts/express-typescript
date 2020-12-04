@@ -121,14 +121,18 @@ A boilerplate for [Node.js](https://nodejs.org/en) App.
 
 Below mentioned are the steps to install, configure & run in your platform/distributions.
 
-> Note: It is preassumed here that you have mongoose running in background & you have created the database.
-
 ```bash
 # Clone the repo.
 git clone https://github.com/GeekyAnts/express-typescript.git;
 
 # Goto the cloned project folder.
 cd nodets;
+```
+
+```bash
+# Without Docker
+
+# Note: It is preassumed here that you have mongoose running in background & you have created the database.
 
 # Install NPM dependencies.
 # Note: You can review the list of dependencies from the below link.
@@ -143,6 +147,19 @@ vim .env;
 # Run the app
 npm run dev;
 ```
+
+```bash
+# With Docker
+
+# Note: It is preassumed here that you have docker running in background
+
+# Run the app in docker as a foreground process
+docker-compose up
+
+# Run the app in docker as a background process
+docker-compose up -d
+```
+
 
 # List of Routes
 
