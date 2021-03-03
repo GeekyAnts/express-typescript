@@ -39,7 +39,7 @@
     "passport-local": "^1.0.0",
     "passport-oauth": "^1.0.0",
     "passport-twitter": "^1.0.4",
-    "pug": "^2.0.3",
+    "pug": ">=3.0.1",
     "request": "^2.88.0",
     "tslint": "^5.11.0"
   },
