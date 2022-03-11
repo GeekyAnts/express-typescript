@@ -10,15 +10,16 @@ const path = require("path");
 const dotenv = require("dotenv");
 const Express_1 = require("./Express");
 const Database_1 = require("./Database");
+const Queue_1 = require("./Queue");
 const Locals_1 = require("./Locals");
 const Log_1 = require("../middlewares/Log");
 class App {
     // Clear the console
     clearConsole() {
         process.stdout.write('\x1B[2J\x1B[0f');
-        // Queue.dispatch('checkout', {foo: 'bar', fizz: 'buzz'}, function (data) {
-        // 	console.log('>> here is the data', data);
-        // });
+        Queue_1.default.dispatch('checkout', { foo: 'bar', fizz: 'buzz' }, function (data) {
+            console.log('>> here is the data', data);
+        });
     }
     // Loads your dotenv file
     loadConfiguration() {

@@ -37,7 +37,7 @@ router.get('/auth/google/callback', passport.authenticate('google', { failureRed
 
 router.get('/auth/twitter', passport.authenticate('twitter'));
 router.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/login' }), (req, res) => {
-	res.redirect(req.session.returnTo || '/');
+	res.redirect('/');
 });
 
 export default router;

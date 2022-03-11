@@ -132,7 +132,7 @@ cd nodets;
 ```bash
 # Without Docker
 
-# Note: It is preassumed here that you have mongoose running in background & you have created the database.
+# Note: It is assumed here that you have MongoDB running in the background and that you have created the database.
 
 # Install NPM dependencies.
 # Note: You can review the list of dependencies from the below link.
@@ -151,7 +151,7 @@ npm run dev;
 ```bash
 # With Docker
 
-# Note: It is preassumed here that you have docker running in background
+# Note: It is assumed here that you have Docker running in the background.
 
 # Run the app in docker as a foreground process
 docker-compose up

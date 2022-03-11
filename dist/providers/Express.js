@@ -47,12 +47,12 @@ class Express {
         this.express.use(Handler_1.default.errorHandler);
         this.express = Handler_1.default.notFoundHandler(this.express);
         // Start the server on the specified port
-        this.express.listen(port, (_error) => {
-            if (_error) {
-                return console.log('Error: ', _error);
-            }
+        this.express.listen(port, () => {
             return console.log('\x1b[33m%s\x1b[0m', `Server :: Running @ 'http://localhost:${port}'`);
+        }).on('error', (_error) => {
+            return console.log('Error: ', _error.message);
         });
+        ;
     }
 }
 /** Export the express module */

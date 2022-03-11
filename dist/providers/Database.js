@@ -5,6 +5,7 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Database = void 0;
 const mongoose = require("mongoose");
 const bluebird = require("bluebird");
 const Locals_1 = require("./Locals");

@@ -28,7 +28,7 @@ router.get('/auth/google', passport.authenticate('google', { scope: ['email', 'p
 router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), Social_1.default.googleCallback);
 router.get('/auth/twitter', passport.authenticate('twitter'));
 router.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/login' }), (req, res) => {
-    res.redirect(req.session.returnTo || '/');
+    res.redirect('/');
 });
 exports.default = router;
 //# sourceMappingURL=Web.js.map
