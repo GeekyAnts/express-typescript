@@ -52,7 +52,6 @@
     "@types/express-session": "^1.15.10",
     "@types/mocha": "^5.2.5",
     "@types/mongodb": "^3.1.4",
-    "@types/mongoose": "^5.2.6",
     "@types/node": "^12.12.17",
     "awesome-typescript-loader": "^5.2.0",
     "mocha": "^5.2.0",

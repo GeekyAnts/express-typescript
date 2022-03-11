@@ -39,7 +39,7 @@ class Login {
                     return next(err);
                 }
                 req.flash('success', { msg: 'You are successfully logged in now!' });
-                res.redirect(req.session.returnTo || '/account');
+                res.redirect('/account');
             });
         })(req, res, next);
     }

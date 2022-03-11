@@ -5,6 +5,7 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserSchema = void 0;
 const crypto = require("crypto");
 const bcrypt = require("bcrypt-nodejs");
 const Database_1 = require("../providers/Database");
