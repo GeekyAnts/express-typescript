@@ -1,5 +1,5 @@
 /**
- * Define Google OAuth2
+ * Define Twitter OAuth2
  *
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
