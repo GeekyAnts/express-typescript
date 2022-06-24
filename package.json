@@ -55,6 +55,7 @@
     "@types/node": "^12.12.17",
     "awesome-typescript-loader": "^5.2.0",
     "mocha": "^5.2.0",
+    "prettier": "^2.7.1",
     "typescript": "^3.0.1",
     "typescript-eslint-parser": "^18.0.0"
   },
