@@ -4,10 +4,10 @@
     {
       "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
       "options": {
-        "printWidth": 100,
+        "printWidth": 120,
         "tabWidth": 2,
         "useTabs": false,
-        "semi": false,
+        "semi": true,
         "singleQuote": true,
         "jsxSingleQuote": true,
         "trailingComma": "es5",
@@ -19,7 +19,7 @@
     {
       "files": ["*.css", "*.json", "*.scss", "*.html", "*.pug"],
       "options": {
-        "printWidth": 100,
+        "printWidth": 120,
         "useTabs": false,
         "tabWidth": 2
       }
