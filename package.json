@@ -63,7 +63,8 @@
     "build": "tsc --project './tsconfig.json'",
     "dev": "tsc --project './tsconfig.json' --watch & NODE_ENV=development nodemon dist",
     "test": "tsc --project './tsconfig.json' && ./node_modules/.bin/mocha dist/**/*.spec.js",
-    "lint": "./node_modules/.bin/tslint -c tslint.json 'src/**/**.ts'"
+    "lint": "./node_modules/.bin/tslint -c tslint.json 'src/**/**.ts'",
+    "format": "prettier --write ./src"
   },
   "author": "Faiz A. Farooqui <faiz@geekyants.com>",
   "license": "ISC"
