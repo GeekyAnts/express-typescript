@@ -1,1 +1,0 @@
-{"version":3,"file":"Home.js","sourceRoot":"","sources":["../../../src/controllers/Api/Home.ts"],"names":[],"mappings":";AAAA;;;;GAIG;;AAEH,mDAA4C;AAE5C,MAAM,IAAI;IACF,MAAM,CAAC,KAAK,CAAC,GAAG,EAAE,GAAG,EAAE,IAAI;QACjC,OAAO,GAAG,CAAC,IAAI,CAAC;YACf,OAAO,EAAE,gBAAM,CAAC,MAAM,EAAE,CAAC,IAAI;SAC7B,CAAC,CAAC;IACJ,CAAC;CACD;AAED,kBAAe,IAAI,CAAC"}
