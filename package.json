@@ -30,7 +30,7 @@
     "magnific-popup": "^1.1.0",
     "memory-cache": "^0.2.0",
     "mongoose": "^5.2.9",
-    "passport": "^0.4.0",
+    "passport": ">=0.6.0",
     "passport-facebook": "^2.1.1",
     "passport-github": "^1.1.0",
     "passport-google-oauth20": "^2.0.0",
