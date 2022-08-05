@@ -33,11 +33,15 @@ router.get('/logout', LogoutController.perform);
 router.get('/account', Passport.isAuthenticated, AccountController.index);
 
 router.get('/auth/google', passport.authenticate('google', { scope: ['email', 'profile'], failureRedirect: '/login' }));
-router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), SocialController.googleCallback);
+router.get(
+    '/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    SocialController.googleCallback
+);
 
 router.get('/auth/twitter', passport.authenticate('twitter'));
 router.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/login' }), (req, res) => {
-	res.redirect('/');
+    res.redirect('/');
 });
 
 export default router;

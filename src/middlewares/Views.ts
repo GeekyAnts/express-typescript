@@ -10,16 +10,16 @@ import { Application } from 'express';
 import Log from './Log';
 
 class Views {
-	public static mount(_express: Application): Application {
-		Log.info('Booting the \'Views\' middleware...');
+    public static mount(_express: Application): Application {
+        Log.info("Booting the 'Views' middleware...");
 
-		_express.set('view engine', 'pug');
-		_express.set('view options', { pretty: true });
-		_express.set('views', path.join(__dirname, '../../views'));
-		_express.locals.pretty = true;
+        _express.set('view engine', 'pug');
+        _express.set('view options', { pretty: true });
+        _express.set('views', path.join(__dirname, '../../views'));
+        _express.locals.pretty = true;
 
-		return _express;
-	}
+        return _express;
+    }
 }
 
 export default Views;
