@@ -19,8 +19,6 @@ export class Database {
 
 		(<any>mongoose).Promise = bluebird;
 
-		mongoose.set('useCreateIndex', true);
-
 		mongoose.connect(dsn, options, (error: MongoError) => {
 			// handle the error case
 			if (error) {
