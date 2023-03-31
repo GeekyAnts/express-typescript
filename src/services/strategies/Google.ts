@@ -74,9 +74,10 @@ class Google {
 							if (profile.photos) {
 								user.picture = user.picture || profile.photos[0].value;
 							}
-							
-							user.save((err) => {
-								return done(err, user);
+							user.save().then(() => {
+								return done(user);
+							}).catch((error) => {
+								return done(error);
 							});
 						}
 					});

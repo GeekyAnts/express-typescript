@@ -66,8 +66,10 @@ class Twitter {
 					user.fullname = profile.displayName;
 					user.geolocation = profile._json.location;
 					user.picture = profile._json.profile_image_url_https;
-					user.save((err) => {
-						done(err, user);
+					user.save().then(() => {
+						return done(user);
+					}).catch((error) => {
+						return done(error);
 					});
 				});
 			}

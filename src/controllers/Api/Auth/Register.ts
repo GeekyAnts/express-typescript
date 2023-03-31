@@ -44,16 +44,14 @@ class Register {
 				});
 			}
 
-			user.save((err) => {
-				if (err) {
-					return res.json({
-						error: err
-					});
-				}
-
+			user.save().then((user) => {
 				return res.json({
 					message: ['You have been successfully registered with us!']
 				});
+			}).catch((err) => {
+				return res.json({
+						error: err
+					});
 			});
 		});
 	}
