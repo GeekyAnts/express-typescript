@@ -44,18 +44,17 @@ class Register {
 				return res.redirect('/signup');
 			}
 
-			user.save((err) => {
-				if (err) {
-					return next(err);
-				}
-
-				req.logIn(user, (err) => {
-					if (err) {
-						return next(err);
-					}
-					req.flash('success', { msg: 'You are successfully logged in now!' });
-					res.redirect('/signup');
-				});
+			user.save()
+				.then(() => {
+					req.logIn(user, (err) => {
+						if (err) {
+							return next(err);
+						}
+						req.flash('success', { msg: 'You are successfully logged in now!' });
+						res.redirect('/signup');
+					});
+			}).catch((error) => {
+				return next(error);
 			});
 		});
 	}
