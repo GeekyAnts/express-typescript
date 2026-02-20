@@ -54,7 +54,6 @@
     "@types/mocha": "^5.2.5",
     "@types/mongodb": "^4.0.7",
     "@types/node": "^12.12.17",
-    "awesome-typescript-loader": "^5.2.0",
     "mocha": "^5.2.0",
     "typescript": "5.0.3",
     "typescript-eslint-parser": "^18.0.0"
@@ -65,8 +64,8 @@
     "dev": "tsc --watch & NODE_ENV=development nodemon dist",
     "test": "tsc && ./node_modules/.bin/mocha dist/**/*.spec.js",
     "lint": "tslint 'src/**/*.ts' --fix",
-    "clean":"rm -rf dist/ .logs/",
-    "start":"node dist"
+    "clean": "rm -rf dist/ .logs/",
+    "start": "node dist"
   },
   "author": "Faiz A. Farooqui <faiz@geekyants.com>",
   "license": "ISC"
