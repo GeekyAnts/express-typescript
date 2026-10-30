@@ -20,6 +20,7 @@ A boilerplate for [Node.js](https://nodejs.org/en) App.
 * To Log - use `Log.info('Your message should go here!')`. Other options for logging are `Log.warn`, `Log.error` & `Log.custom`.
 * For views - Repo contains the use of [PUG](https://github.com/pugjs/pug) template engine.
 * For background queues - Repo contains the use of [Kue](https://github.com/Automattic/kue). For more details, please review the [Queue](https://github.com/faizahmedfarooqui/nodets/blob/master/src/providers/Queue.ts) class.
+* [BetterQueue](https://github.com/Saiop68/better-queue) - Distributed rate limiter and job queue for Node.js with Redis-backed state, cross-process priority and crash recovery.
 
 # Contents
 
